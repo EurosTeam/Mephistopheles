@@ -11,7 +11,7 @@ Méphistophélès can bypass 70% of cracked.to auth same for nulled.to/nulledaut
 But you can update Méphistophélès yourself for bypassing specific auth and improve it !
 I put many comments in the code so that the beginners can understand how méphistophélès bypass auth and how he could improve it !
 
-# In what language is it to code?
+# In what language is it code?
 The "server side" is coded in python and the application is coded in c#.
 
 
