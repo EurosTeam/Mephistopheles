@@ -246,12 +246,12 @@ namespace Méphistophélès
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://google.fr/");
+            System.Diagnostics.Process.Start("https://cainofthebible.github.io/mephistopheles/");
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://google.fr/");
+            System.Diagnostics.Process.Start("https://cainofthebible.github.io/mephistopheles/");
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
