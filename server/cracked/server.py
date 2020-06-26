@@ -15,9 +15,9 @@ auth = auth.readline()
 auth = auth.replace('\n','')
 
 #getting the secret key
-secret = open("server\\cracked\\secret.txt","r")
-secret = secret.readline()
-secret = secret.replace('\n','')
+secret = configparser.ConfigParser()
+secret.read("server\\cracked\\config.ini")
+secretkey = secret.get("secret","secretkey")
 
 def listToString(s):
 	str1 = ""
@@ -53,11 +53,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 			hwid = listToString(hwid)
 			#debugging stuff :hi:
 			print(hwid)
-			print(f"{hwid} {secret} {corentin} {time}")
+			print(f"{hwid} {secretkey} {corentin} {time}")
 			#																		   	  HWID     SECRETKEY       FORLAXSHIT    UTC TIME
 			#exemple of a good cracked.to forlax auth response not encrypted in sha256: 0J94HGB9 3n5blrdzj17ytkc ForlaxWasHere 2020-06-23 17:50 
 			#The secret as always the same len.
-			payload = hashlib.sha256(f"{hwid} {secret} {corentin} {time}".encode("utf-8")).hexdigest()
+			payload = hashlib.sha256(f"{hwid} {secretkey} {corentin} {time}".encode("utf-8")).hexdigest()
 			#what a payload/response (call it whatever u want) looks like: a486b2af2b7281d304e13a9187c5759bcddc0d4c92a52e3792a4ad982ce9b0d0
 			#important thing if you to custom méphistophélès the space count when you encrypt the response in sha256 so be careful :hi:
 			print(payload)
@@ -73,11 +73,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 			self.wfile.write(bytes(auth+"}","utf-8"))
 
 #open a httpserver on the port 443 (https port)
-httpd = HTTPServer(('', 443), SimpleHTTPRequestHandler)
+httpd = HTTPServer(('127.0.0.1', 443), SimpleHTTPRequestHandler)
 
 #this shit doesn't work idk why :feelsbadman:
 httpd.socket = ssl.wrap_socket (httpd.socket, 
-        keyfile="crt\\server.key", 
-        certfile="crt\\server.crt", server_side=True)
+        keyfile="server\\crt\\server.key", 
+        certfile="server\\crt\\server.crt", server_side=True)
 
 httpd.serve_forever()

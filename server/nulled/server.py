@@ -8,11 +8,11 @@ import time
 import configparser
 
 #get the secret key
-secret = open("server\\nulled\\secret.txt","r")
-secret = secret.readline()
-secret = secret.replace('\n','')
+secret = configparser.ConfigParser()
+secret.read("server\\nulled\\config.ini")
+secretkey = secret.get("secret","secretkey")
 
-print(secret)
+print(secretkey)
 
 def listToString(s):
 	str1 = ""
@@ -43,7 +43,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 			print(str(round(time.time()/200)*200))
 			print(hwid)
 			#all the documentation of nulledauth can be found here: https://nulledauth.net/documentation.html
-			payload = hashlib.sha256(f"{secret} {authnulled} {hwid} {round(time.time()/200)*200}".encode("utf-8")).hexdigest()
+			payload = hashlib.sha256(f"{secretkey} {authnulled} {hwid} {round(time.time()/200)*200}".encode("utf-8")).hexdigest()
 			print(payload)
 			self.wfile.write(bytes(payload.upper(),"utf-8"))
 
@@ -53,8 +53,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 			self.end_headers()
 			self.wfile.write(b"{\"auth\":true,\"status\":\"success\"}")
 
-httpd = HTTPServer(('', 443), SimpleHTTPRequestHandler)
+httpd = HTTPServer(('127.0.0.1', 443), SimpleHTTPRequestHandler)
 
-httpd.socket = ssl.wrap_socket(httpd.socket,server_side=True,certfile="crt\\server.crt",keyfile="crt\\server.key")
+httpd.socket = ssl.wrap_socket(httpd.socket,server_side=True,certfile="server\\crt\\server.crt",keyfile="server\\crt\\server.key")
 
 httpd.serve_forever()
