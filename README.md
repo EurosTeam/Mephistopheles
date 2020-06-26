@@ -17,7 +17,7 @@ The "server side" is coded in python and the application is coded in c#.
 # Frequently asked questions
 How to know what auth use the program ? I don't really have technique you can use HTTPDebuggerPro to find wich auth he use or just if one method doesn't work try the other one.  
 Both auth techniques doesn't work what can i do ? Huh if your not skilled at code nothing but if your skilled you can adapt Méphistophélès to the current auth.  
-How can i update or customize Méphistophélès ? learn how to code(https://www.sololearn.com/) and learn how basic auth and auth bypass work.  
+How can i update or customize Méphistophélès ? learn how to code(https://www.sololearn.com/) and learn how Méphistophélès do for bypassing auth.
 
 # Common errors
 If you have trouble with ssl try to install the "server.crt" to trusted root certification authorities.
