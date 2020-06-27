@@ -1,4 +1,4 @@
-# Foobar
+# Méphistophélès
 
 Méphistophélès is a software for bypassing auth system.
 
