@@ -18,7 +18,7 @@ The "server side" is coded in python and the application is coded in c#.
 
 ## Usage
 
-A picture is better than a thousand words :p [![](https://i.ytimg.com/vi/WAj08qj3kKw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_Tj0c09kcipOAOeXNzQBxRRaGxA)](https://www.youtube.com/watch?v=WAj08qj3kKw)
+If the target software don't use nulledauth.net or cracked.to advanced auth you just have to click start.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
