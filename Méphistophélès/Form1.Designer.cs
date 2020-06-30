@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.forlaxauthmode2_check = new MetroFramework.Controls.MetroCheckBox();
             this.metroLink1 = new MetroFramework.Controls.MetroLink();
             this.serverstatus = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
@@ -71,7 +72,6 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.forlaxauthmode2_check = new MetroFramework.Controls.MetroCheckBox();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -134,6 +134,7 @@
             this.metroTabControl1.Size = new System.Drawing.Size(601, 613);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 
@@ -160,6 +161,17 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // forlaxauthmode2_check
+            // 
+            this.forlaxauthmode2_check.AutoSize = true;
+            this.forlaxauthmode2_check.Location = new System.Drawing.Point(219, 300);
+            this.forlaxauthmode2_check.Name = "forlaxauthmode2_check";
+            this.forlaxauthmode2_check.Size = new System.Drawing.Size(127, 15);
+            this.forlaxauthmode2_check.TabIndex = 13;
+            this.forlaxauthmode2_check.Text = "Forlax Auth Mode 2";
+            this.forlaxauthmode2_check.UseSelectable = true;
+            this.forlaxauthmode2_check.CheckedChanged += new System.EventHandler(this.forlaxauthmode2_check_CheckedChanged);
             // 
             // metroLink1
             // 
@@ -668,17 +680,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // forlaxauthmode2_check
-            // 
-            this.forlaxauthmode2_check.AutoSize = true;
-            this.forlaxauthmode2_check.Location = new System.Drawing.Point(219, 300);
-            this.forlaxauthmode2_check.Name = "forlaxauthmode2_check";
-            this.forlaxauthmode2_check.Size = new System.Drawing.Size(127, 15);
-            this.forlaxauthmode2_check.TabIndex = 13;
-            this.forlaxauthmode2_check.Text = "Forlax Auth Mode 2";
-            this.forlaxauthmode2_check.UseSelectable = true;
-            this.forlaxauthmode2_check.CheckedChanged += new System.EventHandler(this.forlaxauthmode2_check_CheckedChanged);
             // 
             // Form1
             // 

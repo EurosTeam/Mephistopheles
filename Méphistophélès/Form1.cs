@@ -272,6 +272,11 @@ namespace Méphistophélès
             Process.Start("https://www.youtube.com/watch?v=YcO_dE0Z19g");
         }
 
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void forlaxauthmode2_check_CheckedChanged(object sender, EventArgs e)
         {
             forlaxmode2 = !forlaxmode2;
@@ -347,6 +352,12 @@ namespace Méphistophélès
                     config.WriteLine("[options]");
                     config.WriteLine("forlaxmode=False");
                     config.WriteLine("forlaxmode2=True");
+                }
+                else if(forlaxmode == false && forlaxmode2 == false)
+                {
+                    config.WriteLine("[options]");
+                    config.WriteLine("forlaxmode=False");
+                    config.WriteLine("forlaxmode2=False");
                 }
 
                 //if cracked.to authkey textbox is not empty
