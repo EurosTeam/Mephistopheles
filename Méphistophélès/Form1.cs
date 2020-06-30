@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Méphistophélès
 {
@@ -18,7 +20,7 @@ namespace Méphistophélès
         int mov;
         int movX;
         int movY;
-        bool nulledauthmode = false,forlaxmode = false,ssl = false;
+        bool nulledauthmode = false, forlaxmode = false, ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, forlaxmode2 = false;
         public Form1()
         {
             InitializeComponent();
@@ -78,6 +80,7 @@ namespace Méphistophélès
                 process.Kill();
             }
             serverstatus.ForeColor = System.Drawing.Color.DarkRed;
+            server_status_cracked = false;
             serverstatus.Text = "OFF";
             //set the server status to OFF
         }
@@ -89,69 +92,77 @@ namespace Méphistophélès
 
         private void startnulled_button_Click(object sender, EventArgs e)
         {
-            StreamWriter optionWriter = new StreamWriter("server\\nulled\\config.ini");
-            //if secret key textbox is not null write the secret key to secret.txt
-
-            if (nulledauthmode == true)
+            if(server_status_nulled == true)
             {
-                optionWriter.WriteLine("[options]");
-                optionWriter.WriteLine("nulledauthmode=True");
+                MessageBox.Show("You didn't stop the server,please stop the server before starting other mode.");
             }
-            else
+            if(server_status_nulled == false)
             {
-                optionWriter.WriteLine("[options]");
-                optionWriter.WriteLine("nulledauthmode=False");
-            }
+                StreamWriter optionWriter = new StreamWriter("server\\nulled\\config.ini");
+                //if secret key textbox is not null write the secret key to secret.txt
 
-            if (secretkey_nulled.Text != null)
-            {
-                optionWriter.WriteLine("[secret]");
-                optionWriter.WriteLine("secretkey=" + secretkey_nulled.Text);
-            }
+                if (nulledauthmode == true)
+                {
+                    optionWriter.WriteLine("[options]");
+                    optionWriter.WriteLine("nulledauthmode=True");
+                }
+                else
+                {
+                    optionWriter.WriteLine("[options]");
+                    optionWriter.WriteLine("nulledauthmode=False");
+                }
 
-            optionWriter.Close();
+                if (secretkey_nulled.Text != null)
+                {
+                    optionWriter.WriteLine("[secret]");
+                    optionWriter.WriteLine("secretkey=" + secretkey_nulled.Text);
+                }
 
-            //starting the server
-            Process p = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/c \"python server\\nulled\\server.py\"";
-            p.StartInfo = startInfo;
-            p.Start();
+                optionWriter.Close();
 
-            //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
-            StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+                //starting the server
+                Process p = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = "/c \"python server\\nulled\\server.py\"";
+                p.StartInfo = startInfo;
+                p.Start();
 
-            string line = streamReader.ReadLine();
+                //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
+                StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                StreamWriter streamWriter = new StreamWriter("oldhost.txt");
 
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                streamWriter.WriteLine(line);
-            }
+                string line = streamReader.ReadLine();
 
-            streamReader.Close();
-            streamWriter.Close();
+                while (line != null)
+                {
+                    line = streamReader.ReadLine();
+                    streamWriter.WriteLine(line);
+                }
 
-            if (nulledauthmode == false)
-            {
-                string payload = "\x0D" + "127.0.0.1 www.nulled.to";
-                //what this does ? all the traffic that will pass through nulled.to will actually go to our server
-                File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-                //set the server status to ON
-                serverstatus_nulled.ForeColor = System.Drawing.Color.LimeGreen;
-                serverstatus_nulled.Text = "ON";
-            }
-            else
-            {
-                string payload = "\x0D" + "127.0.0.1 nulledauth.net";
-                //what this does ? all the traffic that will pass through nulledauth.net will actually go to our server
-                File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-                //set the server status to ON
-                serverstatus_nulled.ForeColor = System.Drawing.Color.LimeGreen;
-                serverstatus_nulled.Text = "ON";
+                streamReader.Close();
+                streamWriter.Close();
+
+                if (nulledauthmode == false)
+                {
+                    string payload = "\x0D" + "127.0.0.1 www.nulled.to";
+                    //what this does ? all the traffic that will pass through nulled.to will actually go to our server
+                    File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
+                    //set the server status to ON
+                    serverstatus_nulled.ForeColor = System.Drawing.Color.LimeGreen;
+                    serverstatus_nulled.Text = "ON";
+                }
+                else
+                {
+                    string payload = "\x0D" + "127.0.0.1 nulledauth.net";
+                    //what this does ? all the traffic that will pass through nulledauth.net will actually go to our server
+                    File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
+                    //set the server status to ON
+                    serverstatus_nulled.ForeColor = System.Drawing.Color.LimeGreen;
+                    server_status_nulled = true;
+                    serverstatus_nulled.Text = "ON";
+                }
             }
         }
 
@@ -183,6 +194,7 @@ namespace Méphistophélès
             }
             //set the server status to OFF
             serverstatus_nulled.ForeColor = System.Drawing.Color.DarkRed;
+            server_status_nulled = false;
             serverstatus_nulled.Text = "OFF";
         }
 
@@ -193,67 +205,96 @@ namespace Méphistophélès
 
         private void startbutton_custom_Click(object sender, EventArgs e)
         {
-            StreamWriter config = new StreamWriter("server\\custom\\config.ini");
-
-            if (ssl == false)
+            //check if the server is already started
+            if(server_status_custom == true)
             {
-                config.WriteLine("[options]");
-                config.WriteLine("port=80");
+                MessageBox.Show("You didn't stop the server, please stop the server before starting other mode.");
             }
-            if (ssl == true)
+            if(server_status_custom == false)
             {
-                config.WriteLine("[options]");
-                config.WriteLine("port=443");
+                StreamWriter config = new StreamWriter("server\\custom\\config.ini");
+
+                if (ssl == false)
+                {
+                    config.WriteLine("[options]");
+                    config.WriteLine("port=80");
+                }
+                if (ssl == true)
+                {
+                    config.WriteLine("[options]");
+                    config.WriteLine("port=443");
+                }
+                config.WriteLine("[response]");
+                config.WriteLine("response=" + goodboy_textbox.Text);
+
+                config.Close();
+
+                //starting the server
+                Process p = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = "/c \"python server\\custom\\server.py\"";
+                p.StartInfo = startInfo;
+                p.Start();
+
+                //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
+                StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+
+                string line = streamReader.ReadLine();
+
+                while (line != null)
+                {
+                    line = streamReader.ReadLine();
+                    streamWriter.WriteLine(line);
+                }
+
+                streamReader.Close();
+                streamWriter.Close();
+                string payload = "\x0D" + "127.0.0.1 " + authname_textbox.Text;
+                //what this does ? all the traffic that will pass through nulled.to will actually go to our server
+                File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
+                //set the server status to ON
+                serverstatus_custom.ForeColor = System.Drawing.Color.LimeGreen;
+                server_status_custom = true;
+                serverstatus_custom.Text = "ON";
             }
-            config.WriteLine("[response]");
-            config.WriteLine("response=" + goodboy_textbox.Text);
-
-            config.Close();
-
-            //starting the server
-            Process p = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/c \"python server\\custom\\server.py\"";
-            p.StartInfo = startInfo;
-            p.Start();
-
-            //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
-            StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            StreamWriter streamWriter = new StreamWriter("oldhost.txt");
-
-            string line = streamReader.ReadLine();
-
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                streamWriter.WriteLine(line);
-            }
-
-            streamReader.Close();
-            streamWriter.Close();
-            string payload = "\x0D" + "127.0.0.1 " + authname_textbox.Text;
-            //what this does ? all the traffic that will pass through nulled.to will actually go to our server
-            File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-            //set the server status to ON
-            serverstatus_custom.ForeColor = System.Drawing.Color.LimeGreen;
-            serverstatus_custom.Text = "ON";
         }
 
         private void metroLink1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dcBDijs0Y84");
+            Process.Start("https://www.youtube.com/watch?v=dcBDijs0Y84");
         }
 
         private void metroLink2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=YcO_dE0Z19g");
+            Process.Start("https://www.youtube.com/watch?v=YcO_dE0Z19g");
         }
 
+        private void forlaxauthmode2_check_CheckedChanged(object sender, EventArgs e)
+        {
+            forlaxmode2 = !forlaxmode2;
+        }
+
+        //by cain button
         private void metroLabel8_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCN9SbyGOmm4cj_xzykyXJPQ?sub_confirmation=1"); // if you want to support me :p
+            Process.Start("https://www.youtube.com/channel/UCN9SbyGOmm4cj_xzykyXJPQ?sub_confirmation=1"); // if you want to support me :p
+        }
+
+        private void lost_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.youtube.com/watch?v=WAj08qj3kKw");
+        }
+
+        private void fromfile_button_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Txt Files (*.txt)|*.txt";
+            openFileDialog.ShowDialog();
+            string tmp = File.ReadAllText(openFileDialog.FileName);
+            goodboy_textbox.Text = tmp;
         }
 
         private void stopbutton_custom_Click(object sender, EventArgs e)
@@ -278,66 +319,78 @@ namespace Méphistophélès
             }
             //set the server status to OFF
             serverstatus_custom.ForeColor = System.Drawing.Color.DarkRed;
+            server_status_custom = false;
             serverstatus_custom.Text = "OFF";
         }
 
         private void startbutton_cracked_Click(object sender, EventArgs e)
         {
-            //write the username to the file
-            StreamWriter streamWriter1 = new StreamWriter("server\\cracked\\crackedauth.txt");
-            StreamWriter config = new StreamWriter("server\\cracked\\config.ini");
-
-            if (forlaxmode == true)
+            if(server_status_cracked == true)
             {
-                config.WriteLine("[options]");
-                config.WriteLine("forlaxmode=True");
+                MessageBox.Show("You didn't stop the server,please stop the server before starting other mode.");
             }
-            else
+            if(server_status_cracked == false)
             {
-                config.WriteLine("[options]");
-                config.WriteLine("forlaxmode=False");
+                //write the username to the file
+                StreamWriter streamWriter1 = new StreamWriter("server\\cracked\\crackedauth.txt");
+                StreamWriter config = new StreamWriter("server\\cracked\\config.ini");
+
+                if (forlaxmode == true && forlaxmode2 == false)
+                {
+                    config.WriteLine("[options]");
+                    config.WriteLine("forlaxmode=True");
+                    config.WriteLine("forlaxmode2=False");
+
+                }
+                else if(forlaxmode == false && forlaxmode2 == true)
+                {
+                    config.WriteLine("[options]");
+                    config.WriteLine("forlaxmode=False");
+                    config.WriteLine("forlaxmode2=True");
+                }
+
+                //if cracked.to authkey textbox is not empty
+                if (secretkey_box.Text != null)
+                {
+                    config.WriteLine("[secret]");
+                    config.WriteLine("secretkey=" + secretkey_box.Text);
+                }
+
+                config.Close();
+                streamWriter1.WriteLine("{\"auth\":true,\"username\":\"" + cracked_username.Text + "\",\"group\":\"100\"");
+
+                streamWriter1.Close();
+
+                //starting the server
+                Process p = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = "/c \"python server\\cracked\\server.py\"";
+                p.StartInfo = startInfo;
+                p.Start();
+
+                //saving the host file to oldhost.txt for get less trouble that possible if you close without stoping the server.
+                StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+
+                string line = streamReader.ReadLine();
+
+                while (line != null)
+                {
+                    line = streamReader.ReadLine();
+                    streamWriter.WriteLine(line);
+                }
+                streamReader.Close();
+                streamWriter.Close();
+
+                string payload = "\x0D" + "127.0.0.1 cracked.to";
+                //what this does ? all the traffic that will pass through cracked.to will actually go to our server
+                File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
+                serverstatus.ForeColor = System.Drawing.Color.LimeGreen;
+                server_status_cracked = true;
+                serverstatus.Text = "ON";
             }
-
-            //if cracked.to authkey textbox is not empty
-            if (secretkey_box.Text != null)
-            {
-                config.WriteLine("[secret]");
-                config.WriteLine("secretkey=" + secretkey_box.Text);
-            }
-
-            config.Close();
-            streamWriter1.WriteLine("{\"auth\":true,\"username\":\"" + cracked_username.Text + "\",\"group\":\"100\"");
-
-            streamWriter1.Close();
-
-            //starting the server
-            Process p = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/c \"python server\\cracked\\server.py\"";
-            p.StartInfo = startInfo;
-            p.Start();
-
-            //saving the host file to oldhost.txt for get less trouble that possible if you close without stoping the server.
-            StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            StreamWriter streamWriter = new StreamWriter("oldhost.txt");
-
-            string line = streamReader.ReadLine();
-
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                streamWriter.WriteLine(line);
-            }
-            streamReader.Close();
-            streamWriter.Close();
-
-            string payload = "\x0D" + "127.0.0.1 cracked.to";
-            //what this does ? all the traffic that will pass through cracked.to will actually go to our server
-            File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-            serverstatus.ForeColor = System.Drawing.Color.LimeGreen;
-            serverstatus.Text = "ON";
         }
     }
 }
