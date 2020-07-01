@@ -32,7 +32,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.cracked = new MetroFramework.Controls.MetroTabPage();
             this.forlaxauthmode2_check = new MetroFramework.Controls.MetroCheckBox();
             this.metroLink1 = new MetroFramework.Controls.MetroLink();
             this.serverstatus = new MetroFramework.Controls.MetroLabel();
@@ -45,7 +45,7 @@
             this.forlaxauthmode_check = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.secretkey_box = new MetroFramework.Controls.MetroTextBox();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.nulled = new MetroFramework.Controls.MetroTabPage();
             this.metroLink2 = new MetroFramework.Controls.MetroLink();
             this.serverstatus_nulled = new MetroFramework.Controls.MetroLabel();
             this.blc = new MetroFramework.Controls.MetroLabel();
@@ -55,7 +55,8 @@
             this.nulledauth_mode = new MetroFramework.Controls.MetroCheckBox();
             this.secretkey_nulled = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.breakingIn = new MetroFramework.Controls.MetroTabPage();
+            this.customauth = new MetroFramework.Controls.MetroTabPage();
             this.fromfile_button = new MetroFramework.Controls.MetroButton();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.serverstatus_custom = new MetroFramework.Controls.MetroLabel();
@@ -67,19 +68,30 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.goodboy_textbox = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
-            this.lost = new MetroFramework.Controls.MetroLink();
+            this.about = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.start_breaking = new MetroFramework.Controls.MetroButton();
+            this.stop_breaking = new MetroFramework.Controls.MetroButton();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.server_status_breaking = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
-            this.metroTabPage1.SuspendLayout();
+            this.cracked.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.metroTabPage2.SuspendLayout();
+            this.nulled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.metroTabPage3.SuspendLayout();
-            this.metroTabPage4.SuspendLayout();
+            this.breakingIn.SuspendLayout();
+            this.customauth.SuspendLayout();
+            this.about.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -124,43 +136,43 @@
             // 
             // metroTabControl1
             // 
-            this.metroTabControl1.Controls.Add(this.metroTabPage1);
-            this.metroTabControl1.Controls.Add(this.metroTabPage2);
-            this.metroTabControl1.Controls.Add(this.metroTabPage3);
-            this.metroTabControl1.Controls.Add(this.metroTabPage4);
+            this.metroTabControl1.Controls.Add(this.cracked);
+            this.metroTabControl1.Controls.Add(this.nulled);
+            this.metroTabControl1.Controls.Add(this.breakingIn);
+            this.metroTabControl1.Controls.Add(this.customauth);
+            this.metroTabControl1.Controls.Add(this.about);
             this.metroTabControl1.Location = new System.Drawing.Point(0, 33);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(601, 613);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
-            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
-            // metroTabPage1
+            // cracked
             // 
-            this.metroTabPage1.Controls.Add(this.forlaxauthmode2_check);
-            this.metroTabPage1.Controls.Add(this.metroLink1);
-            this.metroTabPage1.Controls.Add(this.serverstatus);
-            this.metroTabPage1.Controls.Add(this.metroLabel6);
-            this.metroTabPage1.Controls.Add(this.stopbutton_cracked);
-            this.metroTabPage1.Controls.Add(this.startbutton_cracked);
-            this.metroTabPage1.Controls.Add(this.pictureBox1);
-            this.metroTabPage1.Controls.Add(this.metroLabel2);
-            this.metroTabPage1.Controls.Add(this.cracked_username);
-            this.metroTabPage1.Controls.Add(this.forlaxauthmode_check);
-            this.metroTabPage1.Controls.Add(this.metroLabel1);
-            this.metroTabPage1.Controls.Add(this.secretkey_box);
-            this.metroTabPage1.HorizontalScrollbarBarColor = true;
-            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
-            this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(593, 571);
-            this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Cracked.to";
-            this.metroTabPage1.VerticalScrollbarBarColor = true;
-            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.cracked.Controls.Add(this.forlaxauthmode2_check);
+            this.cracked.Controls.Add(this.metroLink1);
+            this.cracked.Controls.Add(this.serverstatus);
+            this.cracked.Controls.Add(this.metroLabel6);
+            this.cracked.Controls.Add(this.stopbutton_cracked);
+            this.cracked.Controls.Add(this.startbutton_cracked);
+            this.cracked.Controls.Add(this.pictureBox1);
+            this.cracked.Controls.Add(this.metroLabel2);
+            this.cracked.Controls.Add(this.cracked_username);
+            this.cracked.Controls.Add(this.forlaxauthmode_check);
+            this.cracked.Controls.Add(this.metroLabel1);
+            this.cracked.Controls.Add(this.secretkey_box);
+            this.cracked.HorizontalScrollbarBarColor = true;
+            this.cracked.HorizontalScrollbarHighlightOnWheel = false;
+            this.cracked.HorizontalScrollbarSize = 10;
+            this.cracked.Location = new System.Drawing.Point(4, 38);
+            this.cracked.Name = "cracked";
+            this.cracked.Size = new System.Drawing.Size(593, 571);
+            this.cracked.TabIndex = 0;
+            this.cracked.Text = "Cracked.to";
+            this.cracked.VerticalScrollbarBarColor = true;
+            this.cracked.VerticalScrollbarHighlightOnWheel = false;
+            this.cracked.VerticalScrollbarSize = 10;
             // 
             // forlaxauthmode2_check
             // 
@@ -226,8 +238,8 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::Méphistophélès.Properties.Resources.cto;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::Méphistophélès.Properties.Resources.cto;
             this.pictureBox1.Location = new System.Drawing.Point(152, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(247, 247);
@@ -325,28 +337,29 @@
             this.secretkey_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.secretkey_box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroTabPage2
+            // nulled
             // 
-            this.metroTabPage2.Controls.Add(this.metroLink2);
-            this.metroTabPage2.Controls.Add(this.serverstatus_nulled);
-            this.metroTabPage2.Controls.Add(this.blc);
-            this.metroTabPage2.Controls.Add(this.stopnulled_button);
-            this.metroTabPage2.Controls.Add(this.startnulled_button);
-            this.metroTabPage2.Controls.Add(this.metroLabel3);
-            this.metroTabPage2.Controls.Add(this.nulledauth_mode);
-            this.metroTabPage2.Controls.Add(this.secretkey_nulled);
-            this.metroTabPage2.Controls.Add(this.pictureBox2);
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(593, 571);
-            this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Nulled.to";
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.nulled.Controls.Add(this.metroLabel16);
+            this.nulled.Controls.Add(this.metroLink2);
+            this.nulled.Controls.Add(this.serverstatus_nulled);
+            this.nulled.Controls.Add(this.blc);
+            this.nulled.Controls.Add(this.stopnulled_button);
+            this.nulled.Controls.Add(this.startnulled_button);
+            this.nulled.Controls.Add(this.metroLabel3);
+            this.nulled.Controls.Add(this.nulledauth_mode);
+            this.nulled.Controls.Add(this.secretkey_nulled);
+            this.nulled.Controls.Add(this.pictureBox2);
+            this.nulled.HorizontalScrollbarBarColor = true;
+            this.nulled.HorizontalScrollbarHighlightOnWheel = false;
+            this.nulled.HorizontalScrollbarSize = 10;
+            this.nulled.Location = new System.Drawing.Point(4, 38);
+            this.nulled.Name = "nulled";
+            this.nulled.Size = new System.Drawing.Size(593, 571);
+            this.nulled.TabIndex = 1;
+            this.nulled.Text = "Nulled.to";
+            this.nulled.VerticalScrollbarBarColor = true;
+            this.nulled.VerticalScrollbarHighlightOnWheel = false;
+            this.nulled.VerticalScrollbarSize = 10;
             // 
             // metroLink2
             // 
@@ -449,37 +462,56 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::Méphistophélès.Properties.Resources.nto;
-            this.pictureBox2.Location = new System.Drawing.Point(237, 32);
+            this.pictureBox2.Image = global::Méphistophélès.Properties.Resources.nto;
+            this.pictureBox2.Location = new System.Drawing.Point(243, 62);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(83, 75);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // metroTabPage3
+            // breakingIn
             // 
-            this.metroTabPage3.Controls.Add(this.fromfile_button);
-            this.metroTabPage3.Controls.Add(this.metroLabel10);
-            this.metroTabPage3.Controls.Add(this.serverstatus_custom);
-            this.metroTabPage3.Controls.Add(this.metroLabel7);
-            this.metroTabPage3.Controls.Add(this.stopbutton_custom);
-            this.metroTabPage3.Controls.Add(this.startbutton_custom);
-            this.metroTabPage3.Controls.Add(this.ssl_check);
-            this.metroTabPage3.Controls.Add(this.authname_textbox);
-            this.metroTabPage3.Controls.Add(this.metroLabel5);
-            this.metroTabPage3.Controls.Add(this.goodboy_textbox);
-            this.metroTabPage3.Controls.Add(this.metroLabel4);
-            this.metroTabPage3.HorizontalScrollbarBarColor = true;
-            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 10;
-            this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(593, 571);
-            this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "Custom Auth";
-            this.metroTabPage3.VerticalScrollbarBarColor = true;
-            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.breakingIn.Controls.Add(this.server_status_breaking);
+            this.breakingIn.Controls.Add(this.metroLabel15);
+            this.breakingIn.Controls.Add(this.stop_breaking);
+            this.breakingIn.Controls.Add(this.start_breaking);
+            this.breakingIn.Controls.Add(this.pictureBox3);
+            this.breakingIn.HorizontalScrollbarBarColor = true;
+            this.breakingIn.HorizontalScrollbarHighlightOnWheel = false;
+            this.breakingIn.HorizontalScrollbarSize = 10;
+            this.breakingIn.Location = new System.Drawing.Point(4, 38);
+            this.breakingIn.Name = "breakingIn";
+            this.breakingIn.Size = new System.Drawing.Size(593, 571);
+            this.breakingIn.TabIndex = 4;
+            this.breakingIn.Text = "BreakingIn";
+            this.breakingIn.VerticalScrollbarBarColor = true;
+            this.breakingIn.VerticalScrollbarHighlightOnWheel = false;
+            this.breakingIn.VerticalScrollbarSize = 10;
+            // 
+            // customauth
+            // 
+            this.customauth.Controls.Add(this.fromfile_button);
+            this.customauth.Controls.Add(this.metroLabel10);
+            this.customauth.Controls.Add(this.serverstatus_custom);
+            this.customauth.Controls.Add(this.metroLabel7);
+            this.customauth.Controls.Add(this.stopbutton_custom);
+            this.customauth.Controls.Add(this.startbutton_custom);
+            this.customauth.Controls.Add(this.ssl_check);
+            this.customauth.Controls.Add(this.authname_textbox);
+            this.customauth.Controls.Add(this.metroLabel5);
+            this.customauth.Controls.Add(this.goodboy_textbox);
+            this.customauth.Controls.Add(this.metroLabel4);
+            this.customauth.HorizontalScrollbarBarColor = true;
+            this.customauth.HorizontalScrollbarHighlightOnWheel = false;
+            this.customauth.HorizontalScrollbarSize = 10;
+            this.customauth.Location = new System.Drawing.Point(4, 38);
+            this.customauth.Name = "customauth";
+            this.customauth.Size = new System.Drawing.Size(593, 571);
+            this.customauth.TabIndex = 2;
+            this.customauth.Text = "Custom Auth";
+            this.customauth.VerticalScrollbarBarColor = true;
+            this.customauth.VerticalScrollbarHighlightOnWheel = false;
+            this.customauth.VerticalScrollbarSize = 10;
             // 
             // fromfile_button
             // 
@@ -631,46 +663,77 @@
             this.metroLabel4.TabIndex = 2;
             this.metroLabel4.Text = "Good boy Message";
             // 
-            // metroTabPage4
+            // about
             // 
-            this.metroTabPage4.Controls.Add(this.lost);
-            this.metroTabPage4.Controls.Add(this.metroLabel9);
-            this.metroTabPage4.Controls.Add(this.metroLabel8);
-            this.metroTabPage4.HorizontalScrollbarBarColor = true;
-            this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.HorizontalScrollbarSize = 10;
-            this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(593, 571);
-            this.metroTabPage4.TabIndex = 3;
-            this.metroTabPage4.Text = "About";
-            this.metroTabPage4.VerticalScrollbarBarColor = true;
-            this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.VerticalScrollbarSize = 10;
+            this.about.Controls.Add(this.metroLabel14);
+            this.about.Controls.Add(this.metroLabel13);
+            this.about.Controls.Add(this.metroLabel12);
+            this.about.Controls.Add(this.metroLabel11);
+            this.about.Controls.Add(this.metroLabel9);
+            this.about.Controls.Add(this.metroLabel8);
+            this.about.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.about.HorizontalScrollbarBarColor = true;
+            this.about.HorizontalScrollbarHighlightOnWheel = false;
+            this.about.HorizontalScrollbarSize = 10;
+            this.about.Location = new System.Drawing.Point(4, 38);
+            this.about.Name = "about";
+            this.about.Size = new System.Drawing.Size(593, 571);
+            this.about.TabIndex = 3;
+            this.about.Text = "About";
+            this.about.VerticalScrollbarBarColor = true;
+            this.about.VerticalScrollbarHighlightOnWheel = false;
+            this.about.VerticalScrollbarSize = 10;
             // 
-            // lost
+            // metroLabel14
             // 
-            this.lost.Location = new System.Drawing.Point(248, 76);
-            this.lost.Name = "lost";
-            this.lost.Size = new System.Drawing.Size(75, 23);
-            this.lost.TabIndex = 4;
-            this.lost.Text = "Here.";
-            this.lost.UseSelectable = true;
-            this.lost.Click += new System.EventHandler(this.lost_Click);
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.metroLabel14.Location = new System.Drawing.Point(354, 111);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel14.TabIndex = 7;
+            this.metroLabel14.Text = "Github";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(162, 111);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(201, 19);
+            this.metroLabel13.TabIndex = 6;
+            this.metroLabel13.Text = "If you want more info go on our ";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(138, 92);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(284, 19);
+            this.metroLabel12.TabIndex = 5;
+            this.metroLabel12.Text = "For special mode you have to select which one.";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(162, 73);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(229, 19);
+            this.metroLabel11.TabIndex = 4;
+            this.metroLabel11.Text = "All you have to do is to click on start !";
             // 
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(217, 54);
+            this.metroLabel9.Location = new System.Drawing.Point(229, 54);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(146, 19);
+            this.metroLabel9.Size = new System.Drawing.Size(95, 19);
             this.metroLabel9.TabIndex = 3;
-            this.metroLabel9.Text = "I\'m lost where to start ?";
+            this.metroLabel9.Text = "How to use it ?";
             // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(261, 235);
+            this.metroLabel8.Location = new System.Drawing.Point(252, 234);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(53, 19);
             this.metroLabel8.TabIndex = 2;
@@ -680,6 +743,63 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Méphistophélès.Properties.Resources.breaking_or;
+            this.pictureBox3.Location = new System.Drawing.Point(112, 40);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(332, 91);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // start_breaking
+            // 
+            this.start_breaking.Location = new System.Drawing.Point(171, 356);
+            this.start_breaking.Name = "start_breaking";
+            this.start_breaking.Size = new System.Drawing.Size(75, 23);
+            this.start_breaking.TabIndex = 3;
+            this.start_breaking.Text = "Start";
+            this.start_breaking.UseSelectable = true;
+            this.start_breaking.Click += new System.EventHandler(this.start_breaking_Click);
+            // 
+            // stop_breaking
+            // 
+            this.stop_breaking.Location = new System.Drawing.Point(331, 356);
+            this.stop_breaking.Name = "stop_breaking";
+            this.stop_breaking.Size = new System.Drawing.Size(75, 23);
+            this.stop_breaking.TabIndex = 4;
+            this.stop_breaking.Text = "Stop";
+            this.stop_breaking.UseSelectable = true;
+            this.stop_breaking.Click += new System.EventHandler(this.stop_breaking_Click);
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.Location = new System.Drawing.Point(223, 541);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(88, 19);
+            this.metroLabel15.TabIndex = 5;
+            this.metroLabel15.Text = "Server Status:";
+            // 
+            // server_status_breaking
+            // 
+            this.server_status_breaking.AutoSize = true;
+            this.server_status_breaking.Location = new System.Drawing.Point(308, 541);
+            this.server_status_breaking.Name = "server_status_breaking";
+            this.server_status_breaking.Size = new System.Drawing.Size(34, 19);
+            this.server_status_breaking.TabIndex = 6;
+            this.server_status_breaking.Text = "OFF";
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.Location = new System.Drawing.Point(132, 182);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(332, 19);
+            this.metroLabel16.TabIndex = 11;
+            this.metroLabel16.Text = "You have to put \"cain\" as auth key for nulledauth mode.";
             // 
             // Form1
             // 
@@ -696,16 +816,19 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.metroTabControl1.ResumeLayout(false);
-            this.metroTabPage1.ResumeLayout(false);
-            this.metroTabPage1.PerformLayout();
+            this.cracked.ResumeLayout(false);
+            this.cracked.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.metroTabPage2.ResumeLayout(false);
-            this.metroTabPage2.PerformLayout();
+            this.nulled.ResumeLayout(false);
+            this.nulled.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.metroTabPage3.ResumeLayout(false);
-            this.metroTabPage3.PerformLayout();
-            this.metroTabPage4.ResumeLayout(false);
-            this.metroTabPage4.PerformLayout();
+            this.breakingIn.ResumeLayout(false);
+            this.breakingIn.PerformLayout();
+            this.customauth.ResumeLayout(false);
+            this.customauth.PerformLayout();
+            this.about.ResumeLayout(false);
+            this.about.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -715,16 +838,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage1;
+        private MetroFramework.Controls.MetroTabPage cracked;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox cracked_username;
         private MetroFramework.Controls.MetroCheckBox forlaxauthmode_check;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox secretkey_box;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
-        private MetroFramework.Controls.MetroTabPage metroTabPage3;
-        private MetroFramework.Controls.MetroTabPage metroTabPage4;
+        private MetroFramework.Controls.MetroTabPage nulled;
+        private MetroFramework.Controls.MetroTabPage customauth;
+        private MetroFramework.Controls.MetroTabPage about;
         private MetroFramework.Controls.MetroButton stopbutton_cracked;
         private MetroFramework.Controls.MetroButton startbutton_cracked;
         private MetroFramework.Controls.MetroButton stopnulled_button;
@@ -750,11 +873,21 @@
         private MetroFramework.Controls.MetroLink metroLink2;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel9;
-        private MetroFramework.Controls.MetroLink lost;
         private MetroFramework.Controls.MetroButton fromfile_button;
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private MetroFramework.Controls.MetroCheckBox forlaxauthmode2_check;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroTabPage breakingIn;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private MetroFramework.Controls.MetroLabel server_status_breaking;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroButton stop_breaking;
+        private MetroFramework.Controls.MetroButton start_breaking;
+        private MetroFramework.Controls.MetroLabel metroLabel16;
     }
 }
 

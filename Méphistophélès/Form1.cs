@@ -20,7 +20,7 @@ namespace Méphistophélès
         int mov;
         int movX;
         int movY;
-        bool nulledauthmode = false, forlaxmode = false, ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, forlaxmode2 = false;
+        bool nulledauthmode = false, forlaxmode = false, ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, forlaxmode2 = false, server_status_breakingIn = false;
         public Form1()
         {
             InitializeComponent();
@@ -79,7 +79,6 @@ namespace Méphistophélès
             {
                 process.Kill();
             }
-            serverstatus.ForeColor = System.Drawing.Color.DarkRed;
             server_status_cracked = false;
             serverstatus.Text = "OFF";
             //set the server status to OFF
@@ -159,7 +158,6 @@ namespace Méphistophélès
                     //what this does ? all the traffic that will pass through nulledauth.net will actually go to our server
                     File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
                     //set the server status to ON
-                    serverstatus_nulled.ForeColor = System.Drawing.Color.LimeGreen;
                     server_status_nulled = true;
                     serverstatus_nulled.Text = "ON";
                 }
@@ -193,7 +191,6 @@ namespace Méphistophélès
                 process.Kill();
             }
             //set the server status to OFF
-            serverstatus_nulled.ForeColor = System.Drawing.Color.DarkRed;
             server_status_nulled = false;
             serverstatus_nulled.Text = "OFF";
         }
@@ -253,10 +250,8 @@ namespace Méphistophélès
                 streamReader.Close();
                 streamWriter.Close();
                 string payload = "\x0D" + "127.0.0.1 " + authname_textbox.Text;
-                //what this does ? all the traffic that will pass through nulled.to will actually go to our server
                 File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
                 //set the server status to ON
-                serverstatus_custom.ForeColor = System.Drawing.Color.LimeGreen;
                 server_status_custom = true;
                 serverstatus_custom.Text = "ON";
             }
@@ -272,9 +267,68 @@ namespace Méphistophélès
             Process.Start("https://www.youtube.com/watch?v=YcO_dE0Z19g");
         }
 
-        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void stop_breaking_Click(object sender, EventArgs e)
         {
+            //write the old host file.
+            StreamReader streamReader = new StreamReader("oldhost.txt");
+            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
+            string line = streamReader.ReadLine();
 
+            while (line != null)
+            {
+                line = streamReader.ReadLine();
+                writer.WriteLine(line);
+            }
+
+            writer.Close();
+            streamReader.Close();
+
+            //The program search through all process the python process once he found it he kill it
+            foreach (var process in Process.GetProcessesByName("python"))
+            {
+                process.Kill();
+            }
+            //set the server status to OFF
+            server_status_breakingIn = false;
+            server_status_breaking.Text = "OFF";
+        }
+
+        private void start_breaking_Click(object sender, EventArgs e)
+        {
+            if(server_status_breakingIn == true)
+            {
+                MessageBox.Show("You didn't stop the server, please stop the server before starting other mode.");
+            }
+
+            //starting the server
+            Process p = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/c \"python server\\breakingin\\server.py\"";
+            p.StartInfo = startInfo;
+            p.Start();
+
+            //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
+            StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
+            StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+
+            string line = streamReader.ReadLine();
+
+            while (line != null)
+            {
+                line = streamReader.ReadLine();
+                streamWriter.WriteLine(line);
+            }
+
+            streamReader.Close();
+            streamWriter.Close();
+            string payload = "\x0D" + "127.0.0.1 breakingin.to";
+            //what this does ? all the traffic that will pass through breakingin.to will actually go to our server
+            File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
+            //set the server status to ON
+            server_status_breakingIn = true;
+            server_status_breaking.Text = "ON";
         }
 
         private void forlaxauthmode2_check_CheckedChanged(object sender, EventArgs e)
@@ -323,7 +377,6 @@ namespace Méphistophélès
                 process.Kill();
             }
             //set the server status to OFF
-            serverstatus_custom.ForeColor = System.Drawing.Color.DarkRed;
             server_status_custom = false;
             serverstatus_custom.Text = "OFF";
         }
@@ -398,7 +451,6 @@ namespace Méphistophélès
                 string payload = "\x0D" + "127.0.0.1 cracked.to";
                 //what this does ? all the traffic that will pass through cracked.to will actually go to our server
                 File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-                serverstatus.ForeColor = System.Drawing.Color.LimeGreen;
                 server_status_cracked = true;
                 serverstatus.Text = "ON";
             }
