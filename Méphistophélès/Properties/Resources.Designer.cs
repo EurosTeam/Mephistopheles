@@ -63,6 +63,16 @@ namespace Méphistophélès.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap breaking_or {
+            get {
+                object obj = ResourceManager.GetObject("breaking-or", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cain {
             get {
                 object obj = ResourceManager.GetObject("cain", resourceCulture);
