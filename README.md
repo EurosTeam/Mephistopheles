@@ -26,7 +26,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Frequently asked questions
-How to know what auth use the program ? I don't really have technique you can use HTTPDebuggerPro to find wich auth he use or just if one method doesn't work try the other one. 
+How to know what auth use the program ? I don't really have technique you can use HTTPDebuggerPro to find wich auth he use or you can search for strings in process hacker like "ForlaxWasHere" it's for cracked.to forlaxmode or for nulledauth.net you can search for "nulledauth.net" or just if one method doesn't work try the other one. 
 
 Both auth techniques doesn't work what can i do ? Huh if your not skilled at code nothing but if your skilled you can adapt Méphistophélès to the current auth.  
 
