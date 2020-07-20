@@ -6,7 +6,7 @@ Méphistophélès is a software for bypassing auth system.
 
 ## Installation
 
-You can download the releases [here](https://github.com/call-042PE/Mephistopheles/releases/)
+You can download the releases [here](https://github.com/call-042PE/Mephistopheles/releases/)   
 /!\ Make sure you have python3 installed and added to your path /!\
 
 ## How many auth Mephistopheles can bypass?
