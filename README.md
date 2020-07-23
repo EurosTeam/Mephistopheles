@@ -26,6 +26,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Support
+You can supporting me by subscribing at my channel [JackSkellington](https://www.youtube.com/channel/UCN9SbyGOmm4cj_xzykyXJPQ) or by making a little donation at my [paypal.me](https://paypal.me/mephistoproject)
+
 ## Frequently asked questions
 How to know what auth use the program ? I don't really have technique you can use HTTPDebuggerPro to find wich auth he use or you can search for strings in process hacker like "ForlaxWasHere" it's for cracked.to forlaxmode or for nulledauth.net you can search for "nulledauth.net" or just if one method doesn't work try the other one. 
 
