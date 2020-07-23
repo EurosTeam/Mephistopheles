@@ -1,31 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Threading;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
+using System.Net.Http;
+using System.Threading;
 
 namespace Méphistophélès
 {
     public partial class Form1 : Form
     {
+        private static HttpClient client = new HttpClient();
         int mov;
         int movX;
         int movY;
-        bool nulledauthmode = false, forlaxmode = false, ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, forlaxmode2 = false, server_status_breakingIn = false;
+        bool nulledauthmode = false, forlaxmode = false, ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, forlaxmode2 = false, server_status_breakingIn = false, ssl2 = false;
         public Form1()
         {
+            this.Icon = Properties.Resources.icon;
+            //checking for update
+            var response = client.GetStringAsync("https://raw.githubusercontent.com/call-042PE/Mephistopheles/master/version.txt");
+            var version = response.Result;
+            if(version != "1.5\n")
+            {
+                MessageBox.Show("A new update is available on github !");
+            }
             InitializeComponent();
         }
-
         //Quit Button
         private void button1_Click(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace Méphistophélès
             mov = 1;
             movX = e.X;
             movY = e.Y;
-        }
+    }
 
         //this is for moving the form with form border style to none
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -291,6 +291,51 @@ namespace Méphistophélès
             //set the server status to OFF
             server_status_breakingIn = false;
             server_status_breaking.Text = "OFF";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void create_Click(object sender, EventArgs e)
+        {
+            string program_source = Properties.Resources.Source;
+            program_source = program_source.Replace("#server", authurl.Text);
+            string server_source = Properties.Resources.Server_Source;
+            if(ssl2 == false)
+                server_source = server_source.Replace("#port", "80");
+            if(ssl2 == true)
+                server_source = server_source.Replace("#port", "443");
+            string config_ini = Properties.Resources.config;
+            config_ini = config_ini.Replace("#auth", goodboymsg.Text);
+            using (SaveFileDialog saveFile = new SaveFileDialog())
+            {
+                saveFile.Filter = "Executable (*.exe)|*.exe";
+                saveFile.Title = "Auth byppass software file name";
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    new Compiler(program_source, saveFile.FileName);
+                    File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\server.py", server_source);
+                    File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\server.crt", Properties.Resources.server_crt);
+                    File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\server.key", Properties.Resources.server_key);
+                    File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\config.ini", config_ini);
+                }
+            }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Txt Files (*.txt)|*.txt";
+            openFileDialog.ShowDialog();
+            string tmp = File.ReadAllText(openFileDialog.FileName);
+            goodboymsg.Text = tmp;
+        }
+
+        private void ssl_builder_CheckedChanged(object sender, EventArgs e)
+        {
+            ssl2 = !ssl2;
         }
 
         private void start_breaking_Click(object sender, EventArgs e)

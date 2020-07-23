@@ -65,6 +65,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compiler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,7 +78,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -102,10 +103,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\config.txt" />
+    <None Include="Resources\server-key.txt" />
+    <None Include="Resources\server-crt.txt" />
+    <None Include="Resources\Source.txt" />
+    <None Include="Resources\Server-Source.txt" />
+    <None Include="Resources\icon.ico" />
+    <None Include="Resources\icon.bmp" />
     <None Include="cto.png" />
-    <None Include="breaking.png" />
-    <None Include="Breaking-icon.png" />
     <None Include="breaking-or.png" />
+    <None Include="builder.png" />
     <Content Include="nto.ico" />
     <None Include="Resources\cain.jpg" />
     <None Include="Resources\nto.bmp" />
