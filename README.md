@@ -39,4 +39,4 @@ What is auth ? "Our Auth System is like a login for a specific tool. Before gett
 If you have trouble with ssl try to install the "server.crt" to trusted root certification authorities.
 
 ## License
-[UNLICENSE](https://choosealicense.com/licenses/unlicense/)
+[AGPL-3.0](https://choosealicense.com/licenses/agpl-3.0/)
