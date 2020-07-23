@@ -1,0 +1,28 @@
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import ssl,configparser
+
+port = #port
+
+auth = configparser.ConfigParser()
+auth.read("config.ini")
+authresponse = auth.get("response","response")
+
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+
+	def do_GET(self):
+		self.send_response(200)
+		self.end_headers()
+		self.wfile.write(bytes(authresponse,"utf-8"))
+		exit(0)
+
+	def do_POST(self):
+		self.send_response(200)
+		self.end_headers()
+		self.wfile.write(bytes(authresponse,"utf-8"))
+		exit(0)
+
+httpd = HTTPServer(('127.0.0.1',port),SimpleHTTPRequestHandler)
+if port == 443:
+	httpd.socket = ssl.wrap_socket(httpd.socket,keyfile="server.key",certfile="server.crt")
+
+httpd.serve_forever()
