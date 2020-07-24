@@ -4,6 +4,8 @@ using System.IO;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading;
+using System.Runtime.InteropServices;
+
 
 namespace Méphistophélès
 {
