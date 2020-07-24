@@ -4,13 +4,17 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 
-namespace Méphistophélès.Resources
+namespace Mephistopheles
 {
-    public class Source
+    static class Source
     {
         public static string server_link = "#server";
 
-        public static void Main()
+        /// <summary>
+        /// Point d'entrée principal de l'application.
+        /// </summary>
+        [STAThread]
+        static void Main(string[] args)
         {
             string server = "C:\\Windows\\System32\\drivers\\etc\\hosts";
 
@@ -22,7 +26,12 @@ namespace Méphistophélès.Resources
             startInfo.Arguments = "/c \"python server.py\"";
             p.StartInfo = startInfo;
             p.Start();
-            Thread.Sleep(160000);
+            Console.WriteLine("Press enter to close the program...");
+            Console.ReadLine();
+            foreach (var process in Process.GetProcessesByName("python"))
+            {
+                process.Kill();
+            }
             StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
             string line = "";
             writer.WriteLine(line);
