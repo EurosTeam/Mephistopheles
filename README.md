@@ -2,7 +2,7 @@
 
 Méphistophélès is a software for bypassing auth system.
 
-![Méphisto](https://image.noelshack.com/fichiers/2020/26/5/1593174767-mephi.png)
+![Méphisto](https://image.noelshack.com/fichiers/2020/31/7/1596351425-mephisto.png)
 
 ## Installation
 
