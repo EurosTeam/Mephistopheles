@@ -1,6 +1,6 @@
 # Méphistophélès
 
-Méphistophélès is a software for bypassing auth system.
+Méphistophélès is a software for bypassing forums auth system.
 
 ![Méphisto](https://image.noelshack.com/fichiers/2020/31/7/1596351425-mephisto.png)
 
