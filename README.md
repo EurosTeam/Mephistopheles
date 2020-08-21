@@ -27,16 +27,20 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Support
-You can supporting me by subscribing at my channel [JackSkellington](https://www.youtube.com/channel/UCN9SbyGOmm4cj_xzykyXJPQ) or by making a little donation at my [paypal.me](https://paypal.me/mephistoproject)
+You can supporting me by subscribing at my channel [JackSkellington](https://www.youtube.com/channel/UCN9SbyGOmm4cj_xzykyXJPQ)
 
 ## Frequently asked questions
-How to know what auth use the program ? I don't really have technique you can use HTTPDebuggerPro to find wich auth he use or you can search for strings in process hacker like "ForlaxWasHere" it's for cracked.to forlaxmode or for nulledauth.net you can search for "nulledauth.net" or just if one method doesn't work try the other one. 
+Q: How to know what auth use the program ?  
+A: I don't really have technique you can use HTTPDebuggerPro to find wich auth he use or you can search for strings in process hacker like "ForlaxWasHere" it's for cracked.to forlaxmode or for nulledauth.net you can search for "nulledauth.net" or just if one method doesn't work try the other one. 
 
-Both auth techniques doesn't work what can i do ? You can try to adapt Méphistophélès to the current auth.  
+Q: Both auth techniques doesn't work what can i do ?  
+A: You can try to adapt Méphistophélès to the current auth.  
 
-How can i update or customize Méphistophélès ? learn how to code(https://www.sololearn.com/) and learn how Méphistophélès do for bypassing auth.  
+Q: How can i update or customize Méphistophélès ?  
+A: Learn how to code(https://www.sololearn.com/) and learn how Méphistophélès do for bypassing auth.  
 
-What is auth ? "Our Auth System is like a login for a specific tool. Before getting access to the tool you are about to open, you will need to put your Key in, which is linked to your Cracked.to Forum Profile." Cracked.to definition.
+Q: What is auth ?  
+A: "Our Auth System is like a login for a specific tool. Before getting access to the tool you are about to open, you will need to put your Key in, which is linked to your Cracked.to Forum Profile." Cracked.to definition.
 
 ## Common errors
 If you have trouble with ssl try to install the "server.crt" to trusted root certification authorities.
