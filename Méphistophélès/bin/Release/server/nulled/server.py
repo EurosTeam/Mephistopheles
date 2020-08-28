@@ -23,34 +23,23 @@ def listToString(s):
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
 	def do_GET(self):
-		config = configparser.ConfigParser()
-		config.read("server\\nulled\\config.ini")
-		nulledauthmode = config.get("options","nulledauthmode")
-
-		if nulledauthmode == "True":
-			hwid = ""
-			self.send_response(200)
-			self.end_headers()
-			parsed = urlparse(self.path)
-			print(parsed.query)
-			# getting hwid params of the query
-			hwid = urllib.parse.parse_qs(parsed.query)["Hwid"]
-			authnulled = urllib.parse.parse_qs(parsed.query)["Auth"]
-			hwid = listToString(hwid)
-			authnulled = listToString(authnulled)
-			# debugging stuff
-			print(str(round(time.time()/200)*200))
-			print(hwid)
-			# all the documentation of nulledauth can be found here: https://nulledauth.net/documentation.html
-			payload = hashlib.sha256(f"{secretkey} {authnulled} {hwid} {round(time.time()/200)*200}".encode("utf-8")).hexdigest()
-			print(payload)
-			self.wfile.write(bytes(payload.upper(),"utf-8"))
-
-		if nulledauthmode == "False":
-			# if the nulledauthmode is false send a simple bypass requests for nulled.to auth
-			self.send_response(200)
-			self.end_headers()
-			self.wfile.write(b"{\"auth\":true}")
+		hwid = ""
+		parsed = urlparse(self.path)
+		print(parsed.query)
+		self.send_response(200)
+		self.end_headers()
+		# getting hwid params of the query
+		hwid = urllib.parse.parse_qs(parsed.query)["Hwid"]
+		authnulled = urllib.parse.parse_qs(parsed.query)["Auth"]
+		hwid = listToString(hwid)
+		authnulled = listToString(authnulled)
+		# debugging stuff
+		print(str(round(time.time()/200)*200))
+		print(hwid)
+		# all the documentation of nulledauth can be found here: https://nulledauth.net/documentation.html
+		payload = hashlib.sha256(f"{secretkey} {authnulled} {hwid} {round(time.time()/200)*200}".encode("utf-8")).hexdigest()
+		print(payload)
+		self.wfile.write(bytes(payload.upper(),"utf-8"))
 
 httpd = HTTPServer(('127.0.0.1', 443), SimpleHTTPRequestHandler)
 
