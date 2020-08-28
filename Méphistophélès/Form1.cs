@@ -15,14 +15,14 @@ namespace Méphistophélès
         int mov;
         int movX;
         int movY;
-        bool nulledauthmode = false, forlaxmode = false, ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, forlaxmode2 = false, server_status_breakingIn = false, ssl2 = false;
+        bool ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, server_status_breakingIn = false, ssl2 = false;
         public Form1()
         {
             this.Icon = Properties.Resources.icon;
             //checking for update
             var response = client.GetStringAsync("https://raw.githubusercontent.com/call-042PE/Mephistopheles/master/version.txt");
             var version = response.Result;
-            if(version != "1.5\n")
+            if(version != "1.6\n")
             {
                 MessageBox.Show("A new update is available on github !");
             }
@@ -38,16 +38,12 @@ namespace Méphistophélès
         {
             this.Location = Screen.AllScreens[0].WorkingArea.Location;
         }
-
-        //this is for moving the form with form border style to none
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mov = 1;
             movX = e.X;
             movY = e.Y;
-    }
-
-        //this is for moving the form with form border style to none
+        }
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if(mov == 1)
@@ -55,7 +51,6 @@ namespace Méphistophélès
                 this.SetDesktopLocation(MousePosition.X - movX,MousePosition.Y - movY);
             }
         }
-        //this is for moving the form with form border style to none
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             mov = 0;
@@ -86,11 +81,6 @@ namespace Méphistophélès
             //set the server status to OFF
         }
 
-        private void forlaxauthmode_check_CheckedChanged(object sender, EventArgs e)
-        {
-            forlaxmode = !forlaxmode;
-        }
-
         private void startnulled_button_Click(object sender, EventArgs e)
         {
             if(server_status_nulled == true)
@@ -100,18 +90,6 @@ namespace Méphistophélès
             if(server_status_nulled == false)
             {
                 StreamWriter optionWriter = new StreamWriter("server\\nulled\\config.ini");
-                //if secret key textbox is not null write the secret key to secret.txt
-
-                if (nulledauthmode == true)
-                {
-                    optionWriter.WriteLine("[options]");
-                    optionWriter.WriteLine("nulledauthmode=True");
-                }
-                else
-                {
-                    optionWriter.WriteLine("[options]");
-                    optionWriter.WriteLine("nulledauthmode=False");
-                }
 
                 if (secretkey_nulled.Text != null)
                 {
@@ -124,7 +102,7 @@ namespace Méphistophélès
                 //starting the server
                 Process p = new Process();
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.WindowStyle = ProcessWindowStyle.Normal;
                 startInfo.FileName = "cmd.exe";
                 startInfo.Arguments = "/c \"python server\\nulled\\server.py\"";
                 p.StartInfo = startInfo;
@@ -145,30 +123,13 @@ namespace Méphistophélès
                 streamReader.Close();
                 streamWriter.Close();
 
-                if (nulledauthmode == false)
-                {
-                    string payload = "\x0D" + "127.0.0.1 www.nulled.to";
-                    //what this does ? all the traffic that will pass through nulled.to will actually go to our server
-                    File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-                    //set the server status to ON
-                    serverstatus_nulled.ForeColor = System.Drawing.Color.LimeGreen;
-                    serverstatus_nulled.Text = "ON";
-                }
-                else
-                {
-                    string payload = "\x0D" + "127.0.0.1 nulledauth.net";
-                    //what this does ? all the traffic that will pass through nulledauth.net will actually go to our server
-                    File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-                    //set the server status to ON
-                    server_status_nulled = true;
-                    serverstatus_nulled.Text = "ON";
-                }
+                string payload = "\x0D" + "127.0.0.1 nulledauth.net";
+                //what this does ? all the traffic that will pass through nulledauth.net will actually go to our server
+                File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
+                //set the server status to ON
+                server_status_nulled = true;
+                serverstatus_nulled.Text = "ON";
             }
-        }
-
-        private void nulledauth_mode_CheckedChanged(object sender, EventArgs e)
-        {
-            nulledauthmode = !nulledauthmode;
         }
 
         private void stopnulled_button_Click(object sender, EventArgs e)
@@ -302,6 +263,7 @@ namespace Méphistophélès
 
         private void create_Click(object sender, EventArgs e)
         {
+            //builder
             string program_source = Properties.Resources.Source;
             program_source = program_source.Replace("#server", authurl.Text);
             string server_source = Properties.Resources.Server_Source;
@@ -309,8 +271,7 @@ namespace Méphistophélès
                 server_source = server_source.Replace("#port", "80");
             if(ssl2 == true)
                 server_source = server_source.Replace("#port", "443");
-            string config_ini = Properties.Resources.config;
-            config_ini = config_ini.Replace("#auth", goodboymsg.Text);
+            server_source = server_source.Replace("#auth", goodboymsg.Text);
             using (SaveFileDialog saveFile = new SaveFileDialog())
             {
                 saveFile.Filter = "Executable (*.exe)|*.exe";
@@ -321,7 +282,6 @@ namespace Méphistophélès
                     File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\server.py", server_source);
                     File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\server.crt", Properties.Resources.server_crt);
                     File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\server.key", Properties.Resources.server_key);
-                    File.WriteAllText(Path.GetDirectoryName(saveFile.FileName) + "\\config.ini", config_ini);
                 }
             }
         }
@@ -376,11 +336,6 @@ namespace Méphistophélès
             //set the server status to ON
             server_status_breakingIn = true;
             server_status_breaking.Text = "ON";
-        }
-
-        private void forlaxauthmode2_check_CheckedChanged(object sender, EventArgs e)
-        {
-            forlaxmode2 = !forlaxmode2;
         }
 
         //by cain button
@@ -440,26 +395,6 @@ namespace Méphistophélès
                 StreamWriter streamWriter1 = new StreamWriter("server\\cracked\\crackedauth.txt");
                 StreamWriter config = new StreamWriter("server\\cracked\\config.ini");
 
-                if (forlaxmode == true && forlaxmode2 == false)
-                {
-                    config.WriteLine("[options]");
-                    config.WriteLine("forlaxmode=True");
-                    config.WriteLine("forlaxmode2=False");
-
-                }
-                else if(forlaxmode == false && forlaxmode2 == true)
-                {
-                    config.WriteLine("[options]");
-                    config.WriteLine("forlaxmode=False");
-                    config.WriteLine("forlaxmode2=True");
-                }
-                else if(forlaxmode == false && forlaxmode2 == false)
-                {
-                    config.WriteLine("[options]");
-                    config.WriteLine("forlaxmode=False");
-                    config.WriteLine("forlaxmode2=False");
-                }
-
                 //if cracked.to authkey textbox is not empty
                 if (secretkey_box.Text != null)
                 {
@@ -468,9 +403,6 @@ namespace Méphistophélès
                 }
 
                 config.Close();
-                streamWriter1.WriteLine("{\"auth\":true,\"username\":\"" + cracked_username.Text + "\",\"group\":\"100\"");
-
-                streamWriter1.Close();
 
                 //starting the server
                 Process p = new Process();

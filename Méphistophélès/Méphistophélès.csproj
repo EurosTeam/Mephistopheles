@@ -103,7 +103,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\config.txt" />
     <None Include="Resources\server-key.txt" />
     <None Include="Resources\server-crt.txt" />
     <None Include="Resources\Source.txt" />
