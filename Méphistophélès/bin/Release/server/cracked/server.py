@@ -9,9 +9,7 @@ import urllib
 from urllib.parse import urlparse
 import configparser
 
-auth = open("server\\cracked\\crackedauth.txt","r")
-auth = auth.readline()
-auth = auth.replace('\n','')
+auth = "{\"auth\":true,\"username\":\"ForlaxPy\",\"group\":\"100\""
 
 secret = configparser.ConfigParser()
 secret.read("server\\cracked\\config.ini")
@@ -32,67 +30,57 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 		self.wfile.write(bytes(auth+"}","utf-8"))
 
 	def do_POST(self):
+		global body
+		forlaxmode = False
+		forlaxmode2 = False
+		corentin = "ForlaxWasHere"
+		time = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
 		config = configparser.ConfigParser()
-		config.read("server\\cracked\\config.ini")
-		forlaxmode = config.get("options","forlaxmode")
+		content_length = int(self.headers['Content-Length'])
+		# getting the post params
+		body = self.rfile.read(content_length)
+		print(str(body))
+		self.send_response(200)
+		self.end_headers()
+		if("pid" in str(body)):
+			forlaxmode = True
 
-		config = configparser.ConfigParser()
-		config.read("server\\cracked\\config.ini")
-		forlaxmode2 = config.get("options","forlaxmode2")
+		if("hwid" in str(body)):
+			forlaxmode2 = True
 
-		if forlaxmode == "True":
-			time = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
-			corentin = "ForlaxWasHere"
-			content_length = int(self.headers['Content-Length'])
-			# getting the post params
-			body = self.rfile.read(content_length)
-			self.send_response(200)
-			self.end_headers()
+		if("pid" in str(body) and "hwid" in str(body)):
+			forlaxmode = True
+			forlaxmode2 = False
+			
+		print(str(forlaxmode))
+		print(str(forlaxmode2))
+
+		if forlaxmode == True:
 			# parsing the hwid var of the query
 			hwid = urllib.parse.parse_qs(str(body))['hwid']
 			hwid = listToString(hwid)
-			# debugging stuff :hi:
-			print(hwid)
-			print(f"{hwid} {secretkey} {corentin} {time}")
 			#																		   	  HWID     SECRETKEY       FORLAXSTUFF    UTC TIME
-			# exemple of a good cracked.to forlax auth response not encrypted in sha256: 0J94HGB9 3n5blrdzj17ytkc ForlaxWasHere 2020-06-23 17:50 
+			# exemple of a good cracked.to forlax auth response not encrypted in sha256: 0J94HGB9 3n5blrdzj17ytkc ForlaxWasHere 2020-06-23 17:50
 			# The secret as always the same len.
 			payload = hashlib.sha256(f"{hwid} {secretkey} {corentin} {time}".encode("utf-8")).hexdigest()
-			# what a payload/response (call it whatever u want) looks like: a486b2af2b7281d304e13a9187c5759bcddc0d4c92a52e3792a4ad982ce9b0d0
+			# what a response looks like: a486b2af2b7281d304e13a9187c5759bcddc0d4c92a52e3792a4ad982ce9b0d0
 			print(payload)
 			print(auth+",\"hash\":\""+payload+"\"}")
 			# send the final requests
 			self.wfile.write(bytes(auth+",\"hash\":\""+payload+"\"}","utf-8"))
 
-		if forlaxmode2 == "True":
-			time = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
-			corentin = "ForlaxWasHere"
-			content_length = int(self.headers['Content-Length'])
-			# getting the post params
-			body = self.rfile.read(content_length)
-			self.send_response(200)
-			self.end_headers()
+		if forlaxmode2 == True:
 			# parsing the hwid var of the query
 			hwid = urllib.parse.parse_qs(str(body))['hwid']
 			hwid = listToString(hwid)
-			#debugging stuff :hi:
-			print(hwid[0:-1])
-			print(f"{hwid[0:-1]} {corentin} {time}")
 			#																		   	  HWID    FORLAXSTUFF    UTC TIME
-			# exemple of a good cracked.to forlax auth response not encrypted in sha256: 0J94HGB9 ForlaxWasHere 2020-06-23 17:50 
+			# exemple of a good cracked.to forlax auth response not encrypted in sha256: 0J94HGB9 ForlaxWasHere 2020-06-23 17:50
 			payload = hashlib.sha256(f"{hwid[0:-1]} {corentin} {time}".encode("utf-8")).hexdigest().title()
-			# what a payload/response (call it whatever u want) looks like: a486b2af2b7281d304e13a9187c5759bcddc0d4c92a52e3792a4ad982ce9b0d0
-			# important thing if you want to custom méphistophélès the space count when you encrypt the response in sha256 so be careful :hi:
-			print(payload)
+			# what a response looks like: a486b2af2b7281d304e13a9187c5759bcddc0d4c92a52e3792a4ad982ce9b0d0
+			#debugging stuff
 			print(auth+",\"hash\":\""+payload+"\"}")
 			# send the final requests
 			self.wfile.write(bytes(auth+",\"hash\":\""+payload+"\"}","utf-8"))
-
-		if forlaxmode and forlaxmode2 == "False":
-			# if is not in forlaxmode he just send normal auth bypass
-			self.send_response(200)
-			self.end_headers()
-			self.wfile.write(bytes(auth+"}","utf-8"))
 
 httpd = HTTPServer(('127.0.0.1', 443), SimpleHTTPRequestHandler)
 
