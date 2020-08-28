@@ -3,9 +3,7 @@ import ssl,configparser
 
 port = #port
 
-auth = configparser.ConfigParser()
-auth.read("config.ini")
-authresponse = auth.get("response","response")
+authresponse = '#auth'
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
