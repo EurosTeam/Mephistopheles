@@ -81,16 +81,6 @@ namespace Méphistophélès.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à [response]
-        ///response=#auth.
-        /// </summary>
-        public static string config {
-            get {
-                return ResourceManager.GetString("config", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap cto {
@@ -156,11 +146,11 @@ namespace Méphistophélès.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à from http.server import HTTPServer, BaseHTTPRequestHandler
-        ///import ssl
+        ///import ssl,configparser
         ///
-        ///auth = configparser.ConfigParser()
-        ///auth.read(&quot;config.ini&quot;)
-        ///authresponse = auth.get(&quot;response&quot;,&quot;response&quot;)
+        ///port = #port
+        ///
+        ///authresponse = &quot;#auth&quot;
         ///
         ///class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         ///
@@ -168,13 +158,15 @@ namespace Méphistophélès.Properties {
         ///		self.send_response(200)
         ///		self.end_headers()
         ///		self.wfile.write(bytes(authresponse,&quot;utf-8&quot;))
+        ///		exit(0)
         ///
         ///	def do_POST(self):
         ///		self.send_response(200)
         ///		self.end_headers()
         ///		self.wfile.write(bytes(authresponse,&quot;utf-8&quot;))
+        ///		exit(0)
         ///
-        ///httpd = HTTPServer((&apos;#serve [le reste de la chaîne a été tronqué]&quot;;.
+        ///httpd = HTTPServer((&apos;127.0.0.1&apos;,port),SimpleHTTPRequestHandle [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         public static string Server_Source {
             get {
@@ -187,21 +179,23 @@ namespace Méphistophélès.Properties {
         ///using System.Text;
         ///using System.Diagnostics;
         ///using System.IO;
+        ///using System.Threading;
         ///
-        ///namespace Méphistophélès.Resources
+        ///namespace Mephistopheles
         ///{
-        ///    public class Source
+        ///    static class Source
         ///    {
-        ///        public static string server = &quot;#server&quot;;
+        ///        public static string server_link = &quot;#server&quot;;
         ///
-        ///        public static void Main()
+        ///        /// &lt;summary&gt;
+        ///        /// Point d&apos;entrée principal de l&apos;application.
+        ///        /// &lt;/summary&gt;
+        ///        [STAThread]
+        ///        static void Main(string[] args)
         ///        {
         ///            string server = &quot;C:\\Windows\\System32\\drivers\\etc\\hosts&quot;;
         ///
-        ///            File.AppendAllText(server, &quot;127.0.0.1 &quot;+server);
-        ///            Process p = new Process();
-        ///            ProcessStartInfo startInfo = new ProcessStartInfo();
-        ///            star [le reste de la chaîne a été tronqué]&quot;;.
+        ///            File.AppendAllText(ser [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         public static string Source {
             get {
