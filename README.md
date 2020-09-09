@@ -1,3 +1,5 @@
+# This project is discontinued to the lack of motivation for this project and want to be something else than a babysitter.
+
 # Méphistophélès
 
 Méphistophélès is a software for bypassing forums auth system.
