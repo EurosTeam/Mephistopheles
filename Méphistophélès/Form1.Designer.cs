@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             MetroFramework.Controls.MetroTabControl metroTabControl1;
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.cracked = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLink1 = new MetroFramework.Controls.MetroLink();
             this.serverstatus = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
@@ -43,6 +42,8 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.secretkey_box = new MetroFramework.Controls.MetroTextBox();
             this.nulled = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
             this.metroLink2 = new MetroFramework.Controls.MetroLink();
             this.serverstatus_nulled = new MetroFramework.Controls.MetroLabel();
             this.blc = new MetroFramework.Controls.MetroLabel();
@@ -57,18 +58,6 @@
             this.stop_breaking = new MetroFramework.Controls.MetroButton();
             this.start_breaking = new MetroFramework.Controls.MetroButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.customauth = new MetroFramework.Controls.MetroTabPage();
-            this.fromfile_button = new MetroFramework.Controls.MetroButton();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.serverstatus_custom = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.stopbutton_custom = new MetroFramework.Controls.MetroButton();
-            this.startbutton_custom = new MetroFramework.Controls.MetroButton();
-            this.ssl_check = new MetroFramework.Controls.MetroCheckBox();
-            this.authname_textbox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.goodboy_textbox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.builder = new MetroFramework.Controls.MetroTabPage();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
@@ -80,16 +69,19 @@
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.authurl = new MetroFramework.Controls.MetroTextBox();
             this.about = new MetroFramework.Controls.MetroTabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.panel1.SuspendLayout();
             metroTabControl1.SuspendLayout();
             this.cracked.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,92 +89,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.breakingIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.customauth.SuspendLayout();
             this.builder.SuspendLayout();
             this.about.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Turquoise;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(566, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 21);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(267, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Méphistophélès the AIO of Auth Bypass";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.ForeColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(0, -2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(592, 40);
-            this.panel1.TabIndex = 3;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Turquoise;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(539, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 22);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // metroTabControl1
             // 
             metroTabControl1.Controls.Add(this.cracked);
             metroTabControl1.Controls.Add(this.nulled);
             metroTabControl1.Controls.Add(this.breakingIn);
-            metroTabControl1.Controls.Add(this.customauth);
             metroTabControl1.Controls.Add(this.builder);
             metroTabControl1.Controls.Add(this.about);
             metroTabControl1.Location = new System.Drawing.Point(0, 33);
             metroTabControl1.Name = "metroTabControl1";
-            metroTabControl1.SelectedIndex = 1;
+            metroTabControl1.SelectedIndex = 0;
             metroTabControl1.Size = new System.Drawing.Size(601, 613);
             metroTabControl1.Style = MetroFramework.MetroColorStyle.Blue;
-            metroTabControl1.TabIndex = 4;
+            metroTabControl1.TabIndex = 0;
             metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Light;
             metroTabControl1.UseSelectable = true;
             // 
             // cracked
             // 
             this.cracked.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cracked.Controls.Add(this.metroLabel21);
+            this.cracked.Controls.Add(this.metroLabel9);
             this.cracked.Controls.Add(this.metroLabel2);
             this.cracked.Controls.Add(this.metroLink1);
             this.cracked.Controls.Add(this.serverstatus);
@@ -205,26 +137,60 @@
             this.cracked.VerticalScrollbarHighlightOnWheel = false;
             this.cracked.VerticalScrollbarSize = 10;
             // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.Location = new System.Drawing.Point(74, 285);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(482, 57);
+            this.metroLabel21.TabIndex = 15;
+            this.metroLabel21.Text = "A secret key is a security of forums auth\r\nfor avoiding bypass/patch, it\'s added " +
+    "to the request,\r\nso theoretically if you don\'t have the secretkey you can\'t bypa" +
+    "ss/patch the request.";
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel9.Location = new System.Drawing.Point(74, 266);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(151, 19);
+            this.metroLabel9.TabIndex = 14;
+            this.metroLabel9.Text = "What is a Secret Key?";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.Location = new System.Drawing.Point(74, 425);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(449, 19);
+            this.metroLabel2.TabIndex = 13;
+            this.metroLabel2.Text = "You have to search for a secret key only if the bypass didn\'t work.";
+            // 
             // metroLink1
             // 
+            this.metroLink1.ImageSize = 20;
             this.metroLink1.Location = new System.Drawing.Point(-4, 537);
             this.metroLink1.Name = "metroLink1";
             this.metroLink1.Size = new System.Drawing.Size(143, 23);
             this.metroLink1.TabIndex = 12;
             this.metroLink1.Text = "How to get secret key ?";
+            this.metroLink1.UseCustomForeColor = true;
             this.metroLink1.UseSelectable = true;
             this.metroLink1.Click += new System.EventHandler(this.metroLink1_Click);
             // 
             // serverstatus
             // 
             this.serverstatus.AutoSize = true;
-            this.serverstatus.BackColor = System.Drawing.Color.DarkRed;
-            this.serverstatus.ForeColor = System.Drawing.Color.DarkRed;
+            this.serverstatus.BackColor = System.Drawing.Color.Transparent;
+            this.serverstatus.ForeColor = System.Drawing.Color.Red;
             this.serverstatus.Location = new System.Drawing.Point(294, 542);
             this.serverstatus.Name = "serverstatus";
             this.serverstatus.Size = new System.Drawing.Size(34, 19);
             this.serverstatus.TabIndex = 11;
             this.serverstatus.Text = "OFF";
+            this.serverstatus.UseCustomForeColor = true;
             // 
             // metroLabel6
             // 
@@ -237,7 +203,7 @@
             // 
             // stopbutton_cracked
             // 
-            this.stopbutton_cracked.Location = new System.Drawing.Point(324, 393);
+            this.stopbutton_cracked.Location = new System.Drawing.Point(328, 464);
             this.stopbutton_cracked.Name = "stopbutton_cracked";
             this.stopbutton_cracked.Size = new System.Drawing.Size(75, 23);
             this.stopbutton_cracked.TabIndex = 9;
@@ -247,7 +213,7 @@
             // 
             // startbutton_cracked
             // 
-            this.startbutton_cracked.Location = new System.Drawing.Point(152, 393);
+            this.startbutton_cracked.Location = new System.Drawing.Point(156, 464);
             this.startbutton_cracked.Name = "startbutton_cracked";
             this.startbutton_cracked.Size = new System.Drawing.Size(75, 23);
             this.startbutton_cracked.TabIndex = 8;
@@ -262,18 +228,18 @@
             this.pictureBox1.Image = global::Méphistophélès.Properties.Resources.cto;
             this.pictureBox1.Location = new System.Drawing.Point(152, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(247, 247);
+            this.pictureBox1.Size = new System.Drawing.Size(251, 242);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(241, 291);
+            this.metroLabel1.Location = new System.Drawing.Point(217, 362);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(128, 19);
             this.metroLabel1.TabIndex = 3;
-            this.metroLabel1.Text = "Secret key";
+            this.metroLabel1.Text = "Secret key (optional)";
             // 
             // secretkey_box
             // 
@@ -290,7 +256,7 @@
             this.secretkey_box.CustomButton.UseSelectable = true;
             this.secretkey_box.CustomButton.Visible = false;
             this.secretkey_box.Lines = new string[0];
-            this.secretkey_box.Location = new System.Drawing.Point(207, 313);
+            this.secretkey_box.Location = new System.Drawing.Point(211, 384);
             this.secretkey_box.MaxLength = 32767;
             this.secretkey_box.Name = "secretkey_box";
             this.secretkey_box.PasswordChar = '\0';
@@ -307,6 +273,9 @@
             // 
             // nulled
             // 
+            this.nulled.Controls.Add(this.metroLabel4);
+            this.nulled.Controls.Add(this.metroLabel22);
+            this.nulled.Controls.Add(this.metroLabel23);
             this.nulled.Controls.Add(this.metroLink2);
             this.nulled.Controls.Add(this.serverstatus_nulled);
             this.nulled.Controls.Add(this.blc);
@@ -327,6 +296,27 @@
             this.nulled.VerticalScrollbarHighlightOnWheel = false;
             this.nulled.VerticalScrollbarSize = 10;
             // 
+            // metroLabel22
+            // 
+            this.metroLabel22.AutoSize = true;
+            this.metroLabel22.Location = new System.Drawing.Point(74, 227);
+            this.metroLabel22.Name = "metroLabel22";
+            this.metroLabel22.Size = new System.Drawing.Size(482, 57);
+            this.metroLabel22.TabIndex = 17;
+            this.metroLabel22.Text = "A secret key is a security of forums auth\r\nfor avoiding bypass/patch, it\'s added " +
+    "to the request,\r\nso theoretically if you don\'t have the secretkey you can\'t bypa" +
+    "ss/patch the request.";
+            // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel23.Location = new System.Drawing.Point(74, 208);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(151, 19);
+            this.metroLabel23.TabIndex = 16;
+            this.metroLabel23.Text = "What is a Secret Key?";
+            // 
             // metroLink2
             // 
             this.metroLink2.Location = new System.Drawing.Point(-4, 541);
@@ -340,11 +330,13 @@
             // serverstatus_nulled
             // 
             this.serverstatus_nulled.AutoSize = true;
+            this.serverstatus_nulled.ForeColor = System.Drawing.Color.Red;
             this.serverstatus_nulled.Location = new System.Drawing.Point(292, 541);
             this.serverstatus_nulled.Name = "serverstatus_nulled";
             this.serverstatus_nulled.Size = new System.Drawing.Size(34, 19);
             this.serverstatus_nulled.TabIndex = 9;
             this.serverstatus_nulled.Text = "OFF";
+            this.serverstatus_nulled.UseCustomForeColor = true;
             // 
             // blc
             // 
@@ -357,7 +349,7 @@
             // 
             // stopnulled_button
             // 
-            this.stopnulled_button.Location = new System.Drawing.Point(309, 354);
+            this.stopnulled_button.Location = new System.Drawing.Point(323, 437);
             this.stopnulled_button.Name = "stopnulled_button";
             this.stopnulled_button.Size = new System.Drawing.Size(75, 23);
             this.stopnulled_button.TabIndex = 7;
@@ -367,7 +359,7 @@
             // 
             // startnulled_button
             // 
-            this.startnulled_button.Location = new System.Drawing.Point(180, 354);
+            this.startnulled_button.Location = new System.Drawing.Point(150, 437);
             this.startnulled_button.Name = "startnulled_button";
             this.startnulled_button.Size = new System.Drawing.Size(75, 23);
             this.startnulled_button.TabIndex = 6;
@@ -378,11 +370,11 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(240, 226);
+            this.metroLabel3.Location = new System.Drawing.Point(200, 309);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(128, 19);
             this.metroLabel3.TabIndex = 5;
-            this.metroLabel3.Text = "Secret key";
+            this.metroLabel3.Text = "Secret key (optional)";
             // 
             // secretkey_nulled
             // 
@@ -399,7 +391,7 @@
             this.secretkey_nulled.CustomButton.UseSelectable = true;
             this.secretkey_nulled.CustomButton.Visible = false;
             this.secretkey_nulled.Lines = new string[0];
-            this.secretkey_nulled.Location = new System.Drawing.Point(209, 248);
+            this.secretkey_nulled.Location = new System.Drawing.Point(200, 331);
             this.secretkey_nulled.MaxLength = 32767;
             this.secretkey_nulled.Name = "secretkey_nulled";
             this.secretkey_nulled.PasswordChar = '\0';
@@ -446,11 +438,13 @@
             // server_status_breaking
             // 
             this.server_status_breaking.AutoSize = true;
+            this.server_status_breaking.ForeColor = System.Drawing.Color.Red;
             this.server_status_breaking.Location = new System.Drawing.Point(308, 541);
             this.server_status_breaking.Name = "server_status_breaking";
             this.server_status_breaking.Size = new System.Drawing.Size(34, 19);
             this.server_status_breaking.TabIndex = 6;
             this.server_status_breaking.Text = "OFF";
+            this.server_status_breaking.UseCustomForeColor = true;
             // 
             // metroLabel15
             // 
@@ -491,181 +485,6 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
-            // customauth
-            // 
-            this.customauth.Controls.Add(this.fromfile_button);
-            this.customauth.Controls.Add(this.metroLabel10);
-            this.customauth.Controls.Add(this.serverstatus_custom);
-            this.customauth.Controls.Add(this.metroLabel7);
-            this.customauth.Controls.Add(this.stopbutton_custom);
-            this.customauth.Controls.Add(this.startbutton_custom);
-            this.customauth.Controls.Add(this.ssl_check);
-            this.customauth.Controls.Add(this.authname_textbox);
-            this.customauth.Controls.Add(this.metroLabel5);
-            this.customauth.Controls.Add(this.goodboy_textbox);
-            this.customauth.Controls.Add(this.metroLabel4);
-            this.customauth.HorizontalScrollbarBarColor = true;
-            this.customauth.HorizontalScrollbarHighlightOnWheel = false;
-            this.customauth.HorizontalScrollbarSize = 10;
-            this.customauth.Location = new System.Drawing.Point(4, 38);
-            this.customauth.Name = "customauth";
-            this.customauth.Size = new System.Drawing.Size(593, 571);
-            this.customauth.TabIndex = 2;
-            this.customauth.Text = "Custom Auth";
-            this.customauth.VerticalScrollbarBarColor = true;
-            this.customauth.VerticalScrollbarHighlightOnWheel = false;
-            this.customauth.VerticalScrollbarSize = 10;
-            // 
-            // fromfile_button
-            // 
-            this.fromfile_button.Location = new System.Drawing.Point(230, 211);
-            this.fromfile_button.Name = "fromfile_button";
-            this.fromfile_button.Size = new System.Drawing.Size(77, 22);
-            this.fromfile_button.TabIndex = 12;
-            this.fromfile_button.Text = "From File";
-            this.fromfile_button.UseSelectable = true;
-            this.fromfile_button.Click += new System.EventHandler(this.fromfile_button_Click);
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(258, 175);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(22, 19);
-            this.metroLabel10.TabIndex = 11;
-            this.metroLabel10.Text = "or";
-            // 
-            // serverstatus_custom
-            // 
-            this.serverstatus_custom.AutoSize = true;
-            this.serverstatus_custom.Location = new System.Drawing.Point(292, 532);
-            this.serverstatus_custom.Name = "serverstatus_custom";
-            this.serverstatus_custom.Size = new System.Drawing.Size(34, 19);
-            this.serverstatus_custom.TabIndex = 10;
-            this.serverstatus_custom.Text = "OFF";
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(209, 532);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(88, 19);
-            this.metroLabel7.TabIndex = 9;
-            this.metroLabel7.Text = "Server Status:";
-            // 
-            // stopbutton_custom
-            // 
-            this.stopbutton_custom.Location = new System.Drawing.Point(316, 366);
-            this.stopbutton_custom.Name = "stopbutton_custom";
-            this.stopbutton_custom.Size = new System.Drawing.Size(75, 23);
-            this.stopbutton_custom.TabIndex = 8;
-            this.stopbutton_custom.Text = "Stop";
-            this.stopbutton_custom.UseSelectable = true;
-            this.stopbutton_custom.Click += new System.EventHandler(this.stopbutton_custom_Click);
-            // 
-            // startbutton_custom
-            // 
-            this.startbutton_custom.Location = new System.Drawing.Point(153, 366);
-            this.startbutton_custom.Name = "startbutton_custom";
-            this.startbutton_custom.Size = new System.Drawing.Size(75, 23);
-            this.startbutton_custom.TabIndex = 7;
-            this.startbutton_custom.Text = "Start";
-            this.startbutton_custom.UseSelectable = true;
-            this.startbutton_custom.Click += new System.EventHandler(this.startbutton_custom_Click);
-            // 
-            // ssl_check
-            // 
-            this.ssl_check.AutoSize = true;
-            this.ssl_check.Location = new System.Drawing.Point(243, 315);
-            this.ssl_check.Name = "ssl_check";
-            this.ssl_check.Size = new System.Drawing.Size(41, 15);
-            this.ssl_check.TabIndex = 6;
-            this.ssl_check.Text = "SSL";
-            this.ssl_check.UseSelectable = true;
-            this.ssl_check.CheckedChanged += new System.EventHandler(this.ssl_check_CheckedChanged);
-            // 
-            // authname_textbox
-            // 
-            // 
-            // 
-            // 
-            this.authname_textbox.CustomButton.Image = null;
-            this.authname_textbox.CustomButton.Location = new System.Drawing.Point(101, 1);
-            this.authname_textbox.CustomButton.Name = "";
-            this.authname_textbox.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.authname_textbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.authname_textbox.CustomButton.TabIndex = 1;
-            this.authname_textbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.authname_textbox.CustomButton.UseSelectable = true;
-            this.authname_textbox.CustomButton.Visible = false;
-            this.authname_textbox.Lines = new string[] {
-        "nulled.to"};
-            this.authname_textbox.Location = new System.Drawing.Point(209, 273);
-            this.authname_textbox.MaxLength = 32767;
-            this.authname_textbox.Name = "authname_textbox";
-            this.authname_textbox.PasswordChar = '\0';
-            this.authname_textbox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.authname_textbox.SelectedText = "";
-            this.authname_textbox.SelectionLength = 0;
-            this.authname_textbox.SelectionStart = 0;
-            this.authname_textbox.ShortcutsEnabled = true;
-            this.authname_textbox.Size = new System.Drawing.Size(123, 23);
-            this.authname_textbox.TabIndex = 5;
-            this.authname_textbox.Text = "nulled.to";
-            this.authname_textbox.UseSelectable = true;
-            this.authname_textbox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.authname_textbox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(220, 251);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(96, 19);
-            this.metroLabel5.TabIndex = 4;
-            this.metroLabel5.Text = "The auth name";
-            // 
-            // goodboy_textbox
-            // 
-            // 
-            // 
-            // 
-            this.goodboy_textbox.CustomButton.Image = null;
-            this.goodboy_textbox.CustomButton.Location = new System.Drawing.Point(101, 1);
-            this.goodboy_textbox.CustomButton.Name = "";
-            this.goodboy_textbox.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.goodboy_textbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.goodboy_textbox.CustomButton.TabIndex = 1;
-            this.goodboy_textbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.goodboy_textbox.CustomButton.UseSelectable = true;
-            this.goodboy_textbox.CustomButton.Visible = false;
-            this.goodboy_textbox.Lines = new string[] {
-        "{\"auth\":true}"};
-            this.goodboy_textbox.Location = new System.Drawing.Point(209, 143);
-            this.goodboy_textbox.MaxLength = 32767;
-            this.goodboy_textbox.Name = "goodboy_textbox";
-            this.goodboy_textbox.PasswordChar = '\0';
-            this.goodboy_textbox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.goodboy_textbox.SelectedText = "";
-            this.goodboy_textbox.SelectionLength = 0;
-            this.goodboy_textbox.SelectionStart = 0;
-            this.goodboy_textbox.ShortcutsEnabled = true;
-            this.goodboy_textbox.Size = new System.Drawing.Size(123, 23);
-            this.goodboy_textbox.TabIndex = 3;
-            this.goodboy_textbox.Text = "{\"auth\":true}";
-            this.goodboy_textbox.UseSelectable = true;
-            this.goodboy_textbox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.goodboy_textbox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(209, 121);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(123, 19);
-            this.metroLabel4.TabIndex = 2;
-            this.metroLabel4.Text = "Good boy message";
-            // 
             // builder
             // 
             this.builder.Controls.Add(this.metroButton1);
@@ -691,7 +510,7 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(229, 259);
+            this.metroButton1.Location = new System.Drawing.Point(239, 260);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(75, 23);
             this.metroButton1.TabIndex = 10;
@@ -702,7 +521,7 @@
             // metroLabel20
             // 
             this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(253, 233);
+            this.metroLabel20.Location = new System.Drawing.Point(263, 234);
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(22, 19);
             this.metroLabel20.TabIndex = 9;
@@ -711,7 +530,7 @@
             // ssl_builder
             // 
             this.ssl_builder.AutoSize = true;
-            this.ssl_builder.Location = new System.Drawing.Point(243, 305);
+            this.ssl_builder.Location = new System.Drawing.Point(253, 306);
             this.ssl_builder.Name = "ssl_builder";
             this.ssl_builder.Size = new System.Drawing.Size(41, 15);
             this.ssl_builder.TabIndex = 8;
@@ -722,15 +541,16 @@
             // metroLabel19
             // 
             this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(76, 41);
+            this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel19.Location = new System.Drawing.Point(56, 41);
             this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(411, 19);
+            this.metroLabel19.Size = new System.Drawing.Size(471, 19);
             this.metroLabel19.TabIndex = 7;
             this.metroLabel19.Text = "With this new module you can make your own auth bypass software !";
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(229, 346);
+            this.create.Location = new System.Drawing.Point(239, 347);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(75, 23);
             this.create.TabIndex = 6;
@@ -741,7 +561,7 @@
             // metroLabel18
             // 
             this.metroLabel18.AutoSize = true;
-            this.metroLabel18.Location = new System.Drawing.Point(208, 176);
+            this.metroLabel18.Location = new System.Drawing.Point(218, 177);
             this.metroLabel18.Name = "metroLabel18";
             this.metroLabel18.Size = new System.Drawing.Size(123, 19);
             this.metroLabel18.TabIndex = 5;
@@ -763,7 +583,7 @@
             this.goodboymsg.CustomButton.Visible = false;
             this.goodboymsg.Lines = new string[] {
         "{\"auth\":true}"};
-            this.goodboymsg.Location = new System.Drawing.Point(217, 198);
+            this.goodboymsg.Location = new System.Drawing.Point(227, 199);
             this.goodboymsg.MaxLength = 999999;
             this.goodboymsg.Name = "goodboymsg";
             this.goodboymsg.PasswordChar = '\0';
@@ -782,11 +602,11 @@
             // metroLabel17
             // 
             this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(239, 106);
+            this.metroLabel17.Location = new System.Drawing.Point(247, 107);
             this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(55, 19);
+            this.metroLabel17.Size = new System.Drawing.Size(63, 19);
             this.metroLabel17.TabIndex = 3;
-            this.metroLabel17.Text = "Auth url";
+            this.metroLabel17.Text = "Auth URL";
             // 
             // authurl
             // 
@@ -804,7 +624,7 @@
             this.authurl.CustomButton.Visible = false;
             this.authurl.Lines = new string[] {
         "cracked.to"};
-            this.authurl.Location = new System.Drawing.Point(218, 128);
+            this.authurl.Location = new System.Drawing.Point(228, 129);
             this.authurl.MaxLength = 32767;
             this.authurl.Name = "authurl";
             this.authurl.PasswordChar = '\0';
@@ -822,12 +642,12 @@
             // 
             // about
             // 
-            this.about.Controls.Add(this.label1);
+            this.about.Controls.Add(this.metroLabel25);
+            this.about.Controls.Add(this.metroLabel12);
             this.about.Controls.Add(this.metroLabel16);
             this.about.Controls.Add(this.metroLabel14);
             this.about.Controls.Add(this.metroLabel13);
             this.about.Controls.Add(this.metroLabel11);
-            this.about.Controls.Add(this.metroLabel8);
             this.about.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.about.HorizontalScrollbarBarColor = true;
             this.about.HorizontalScrollbarHighlightOnWheel = false;
@@ -841,41 +661,52 @@
             this.about.VerticalScrollbarHighlightOnWheel = false;
             this.about.VerticalScrollbarSize = 10;
             // 
-            // label1
+            // metroLabel25
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(224, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 19);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "How to use it?";
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel25.Location = new System.Drawing.Point(230, 21);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(101, 19);
+            this.metroLabel25.TabIndex = 10;
+            this.metroLabel25.Text = "Requirements";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel12.Location = new System.Drawing.Point(229, 98);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(102, 19);
+            this.metroLabel12.TabIndex = 9;
+            this.metroLabel12.Text = "How to use it?";
             // 
             // metroLabel16
             // 
             this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(98, 18);
+            this.metroLabel16.Location = new System.Drawing.Point(95, 45);
             this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(374, 19);
+            this.metroLabel16.Size = new System.Drawing.Size(389, 38);
             this.metroLabel16.TabIndex = 8;
-            this.metroLabel16.Text = "Make sure you have python3 installed and added to your path.";
+            this.metroLabel16.Text = "Make sure you have python3 installed and added to your path,\r\nand installed the s" +
+    "erver.crt to trusted root certification authorities.";
             // 
             // metroLabel14
             // 
             this.metroLabel14.AutoSize = true;
-            this.metroLabel14.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.metroLabel14.Location = new System.Drawing.Point(354, 92);
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroLabel14.Location = new System.Drawing.Point(355, 136);
             this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel14.Size = new System.Drawing.Size(53, 19);
             this.metroLabel14.TabIndex = 7;
             this.metroLabel14.Text = "Github";
+            this.metroLabel14.UseCustomForeColor = true;
             // 
             // metroLabel13
             // 
             this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(162, 92);
+            this.metroLabel13.Location = new System.Drawing.Point(163, 136);
             this.metroLabel13.Name = "metroLabel13";
             this.metroLabel13.Size = new System.Drawing.Size(201, 19);
             this.metroLabel13.TabIndex = 6;
@@ -884,34 +715,86 @@
             // metroLabel11
             // 
             this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(162, 73);
+            this.metroLabel11.Location = new System.Drawing.Point(163, 117);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(229, 19);
             this.metroLabel11.TabIndex = 4;
             this.metroLabel11.Text = "All you have to do is to click on start !";
             // 
-            // metroLabel8
+            // button1
             // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(228, 184);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(92, 19);
-            this.metroLabel8.TabIndex = 2;
-            this.metroLabel8.Text = "by flesh#0992.";
-            this.metroLabel8.Click += new System.EventHandler(this.metroLabel8_Click);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Turquoise;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Location = new System.Drawing.Point(566, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 21);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(3, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(267, 18);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Méphistophélès the AIO of Auth Bypass";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.ForeColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(0, -2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(592, 40);
+            this.panel1.TabIndex = 3;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Turquoise;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Transparent;
+            this.button2.Location = new System.Drawing.Point(539, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 22);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "-";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // metroLabel2
+            // metroLabel4
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(129, 358);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(296, 19);
-            this.metroLabel2.TabIndex = 13;
-            this.metroLabel2.Text = "If the auth didn\'t work try to search for secret key.";
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel4.Location = new System.Drawing.Point(74, 390);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(449, 19);
+            this.metroLabel4.TabIndex = 18;
+            this.metroLabel4.Text = "You have to search for a secret key only if the bypass didn\'t work.";
             // 
             // Form1
             // 
@@ -925,8 +808,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             metroTabControl1.ResumeLayout(false);
             this.cracked.ResumeLayout(false);
             this.cracked.PerformLayout();
@@ -937,12 +818,12 @@
             this.breakingIn.ResumeLayout(false);
             this.breakingIn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.customauth.ResumeLayout(false);
-            this.customauth.PerformLayout();
             this.builder.ResumeLayout(false);
             this.builder.PerformLayout();
             this.about.ResumeLayout(false);
             this.about.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -956,7 +837,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox secretkey_box;
         private MetroFramework.Controls.MetroTabPage nulled;
-        private MetroFramework.Controls.MetroTabPage customauth;
         private MetroFramework.Controls.MetroTabPage about;
         private MetroFramework.Controls.MetroButton stopbutton_cracked;
         private MetroFramework.Controls.MetroButton startbutton_cracked;
@@ -965,24 +845,12 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTextBox secretkey_nulled;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private MetroFramework.Controls.MetroButton stopbutton_custom;
-        private MetroFramework.Controls.MetroButton startbutton_custom;
-        private MetroFramework.Controls.MetroCheckBox ssl_check;
-        private MetroFramework.Controls.MetroTextBox authname_textbox;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroTextBox goodboy_textbox;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel serverstatus;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel serverstatus_nulled;
         private MetroFramework.Controls.MetroLabel blc;
-        private MetroFramework.Controls.MetroLabel serverstatus_custom;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLink metroLink1;
         private MetroFramework.Controls.MetroLink metroLink2;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroButton fromfile_button;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroLabel metroLabel14;
@@ -1005,8 +873,14 @@
         private MetroFramework.Controls.MetroLabel metroLabel19;
         private MetroFramework.Controls.MetroLabel metroLabel20;
         private MetroFramework.Controls.MetroButton metroButton1;
-        private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel21;
+        private MetroFramework.Controls.MetroLabel metroLabel22;
+        private MetroFramework.Controls.MetroLabel metroLabel23;
+        private MetroFramework.Controls.MetroLabel metroLabel25;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }
 

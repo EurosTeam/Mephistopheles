@@ -5,7 +5,8 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading;
 using System.Runtime.InteropServices;
-
+using System.Windows.Media;
+using System.Net.Security;
 
 namespace Méphistophélès
 {
@@ -15,14 +16,37 @@ namespace Méphistophélès
         int mov;
         int movX;
         int movY;
-        bool ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_custom = false, server_status_breakingIn = false, ssl2 = false;
+        bool ssl = false, server_status_cracked = false, server_status_nulled = false, server_status_breakingIn = false, ssl2 = false;
+
+        public void StopAuth()
+        {
+            //write the old host file.
+            StreamReader streamReader = new StreamReader("oldhost.txt");
+            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
+
+            string line = streamReader.ReadLine();
+
+            while (line != null)
+            {
+                line = streamReader.ReadLine();
+                writer.WriteLine(line);
+            }
+            writer.Close();
+            streamReader.Close();
+
+            foreach (var process in Process.GetProcessesByName("python"))
+            {
+                process.Kill();
+            }
+        }
+
         public Form1()
         {
             this.Icon = Properties.Resources.icon;
             //checking for update
-            var response = client.GetStringAsync("https://raw.githubusercontent.com/call-042PE/Mephistopheles/master/version.txt");
+            var response = client.GetStringAsync("https://raw.githubusercontent.com/EurosTeam/Mephistopheles/master/version.txt");
             var version = response.Result;
-            if(version != "1.6\n")
+            if(version != "1.8\n")
             {
                 MessageBox.Show("A new update is available on github !");
             }
@@ -58,27 +82,10 @@ namespace Méphistophélès
 
         private void stopbutton_cracked_Click(object sender, EventArgs e)
         {
-            //write the old host file.
-            StreamReader streamReader = new StreamReader("oldhost.txt");
-            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
-
-            string line = streamReader.ReadLine();
-
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                writer.WriteLine(line);
-            }
-            writer.Close();
-            streamReader.Close();
-
-            foreach (var process in Process.GetProcessesByName("python"))
-            {
-                process.Kill();
-            }
+            StopAuth();
             server_status_cracked = false;
             serverstatus.Text = "OFF";
-            //set the server status to OFF
+            serverstatus.ForeColor = System.Drawing.Color.Red;
         }
 
         private void startnulled_button_Click(object sender, EventArgs e)
@@ -87,6 +94,7 @@ namespace Méphistophélès
             {
                 MessageBox.Show("You didn't stop the server,please stop the server before starting other mode.");
             }
+
             if(server_status_nulled == false)
             {
                 StreamWriter optionWriter = new StreamWriter("server\\nulled\\config.ini");
@@ -102,7 +110,7 @@ namespace Méphistophélès
                 //starting the server
                 Process p = new Process();
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.WindowStyle = ProcessWindowStyle.Normal;
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 startInfo.FileName = "cmd.exe";
                 startInfo.Arguments = "/c \"python server\\nulled\\server.py\"";
                 p.StartInfo = startInfo;
@@ -110,7 +118,7 @@ namespace Méphistophélès
 
                 //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
                 StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-                StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+                StreamWriter streamWriter = new StreamWriter("hosts.bak");
 
                 string line = streamReader.ReadLine();
 
@@ -129,95 +137,21 @@ namespace Méphistophélès
                 //set the server status to ON
                 server_status_nulled = true;
                 serverstatus_nulled.Text = "ON";
+                serverstatus_nulled.ForeColor = System.Drawing.Color.Lime;
             }
         }
 
         private void stopnulled_button_Click(object sender, EventArgs e)
         {
-            //write the old host file.
-            StreamReader streamReader = new StreamReader("oldhost.txt");
-            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            string line = streamReader.ReadLine();
-
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                writer.WriteLine(line);
-            }
-
-            writer.Close();
-            streamReader.Close();
-
-            //The program search through all process the python process once he found it he kill it
-            foreach (var process in Process.GetProcessesByName("python"))
-            {
-                process.Kill();
-            }
-            //set the server status to OFF
+            StopAuth();
             server_status_nulled = false;
             serverstatus_nulled.Text = "OFF";
+            serverstatus_nulled.ForeColor = System.Drawing.Color.Red;
         }
 
         private void ssl_check_CheckedChanged(object sender, EventArgs e)
         {
             ssl = !ssl;
-        }
-
-        private void startbutton_custom_Click(object sender, EventArgs e)
-        {
-            //check if the server is already started
-            if(server_status_custom == true)
-            {
-                MessageBox.Show("You didn't stop the server, please stop the server before starting other mode.");
-            }
-            if(server_status_custom == false)
-            {
-                StreamWriter config = new StreamWriter("server\\custom\\config.ini");
-
-                if (ssl == false)
-                {
-                    config.WriteLine("[options]");
-                    config.WriteLine("port=80");
-                }
-                if (ssl == true)
-                {
-                    config.WriteLine("[options]");
-                    config.WriteLine("port=443");
-                }
-                config.WriteLine("[response]");
-                config.WriteLine("response=" + goodboy_textbox.Text);
-
-                config.Close();
-
-                //starting the server
-                Process p = new Process();
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                startInfo.FileName = "cmd.exe";
-                startInfo.Arguments = "/c \"python server\\custom\\server.py\"";
-                p.StartInfo = startInfo;
-                p.Start();
-
-                //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
-                StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-                StreamWriter streamWriter = new StreamWriter("oldhost.txt");
-
-                string line = streamReader.ReadLine();
-
-                while (line != null)
-                {
-                    line = streamReader.ReadLine();
-                    streamWriter.WriteLine(line);
-                }
-
-                streamReader.Close();
-                streamWriter.Close();
-                string payload = "\x0D" + "127.0.0.1 " + authname_textbox.Text;
-                File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
-                //set the server status to ON
-                server_status_custom = true;
-                serverstatus_custom.Text = "ON";
-            }
         }
 
         private void metroLink1_Click(object sender, EventArgs e)
@@ -232,28 +166,10 @@ namespace Méphistophélès
 
         private void stop_breaking_Click(object sender, EventArgs e)
         {
-            //write the old host file.
-            StreamReader streamReader = new StreamReader("oldhost.txt");
-            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            string line = streamReader.ReadLine();
-
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                writer.WriteLine(line);
-            }
-
-            writer.Close();
-            streamReader.Close();
-
-            //The program search through all process the python process once he found it he kill it
-            foreach (var process in Process.GetProcessesByName("python"))
-            {
-                process.Kill();
-            }
-            //set the server status to OFF
+            StopAuth();
             server_status_breakingIn = false;
             server_status_breaking.Text = "OFF";
+            server_status_breaking.ForeColor = System.Drawing.Color.Red;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -291,8 +207,8 @@ namespace Méphistophélès
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Txt Files (*.txt)|*.txt";
             openFileDialog.ShowDialog();
-            string tmp = File.ReadAllText(openFileDialog.FileName);
-            goodboymsg.Text = tmp;
+            string ReadFile = File.ReadAllText(openFileDialog.FileName);
+            goodboymsg.Text = ReadFile;
         }
 
         private void ssl_builder_CheckedChanged(object sender, EventArgs e)
@@ -318,7 +234,7 @@ namespace Méphistophélès
 
             //saving the host file to oldhost.txt for get less trouble that possible if you close without stopping the server.
             StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+            StreamWriter streamWriter = new StreamWriter("hosts.bak");
 
             string line = streamReader.ReadLine();
 
@@ -336,51 +252,12 @@ namespace Méphistophélès
             //set the server status to ON
             server_status_breakingIn = true;
             server_status_breaking.Text = "ON";
+            server_status_breaking.ForeColor = System.Drawing.Color.Lime;
         }
 
-        //by cain button
         private void metroLabel8_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.youtube.com/channel/UCN9SbyGOmm4cj_xzykyXJPQ?sub_confirmation=1"); // if you want to support me :p
-        }
-
-        private void lost_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://www.youtube.com/watch?v=WAj08qj3kKw");
-        }
-
-        private void fromfile_button_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Txt Files (*.txt)|*.txt";
-            openFileDialog.ShowDialog();
-            string tmp = File.ReadAllText(openFileDialog.FileName);
-            goodboy_textbox.Text = tmp;
-        }
-
-        private void stopbutton_custom_Click(object sender, EventArgs e)
-        {
-            StreamReader streamReader = new StreamReader("oldhost.txt");
-            StreamWriter writer = new StreamWriter("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            string line = streamReader.ReadLine();
-
-            while (line != null)
-            {
-                line = streamReader.ReadLine();
-                writer.WriteLine(line);
-            }
-
-            writer.Close();
-            streamReader.Close();
-
-            //The program search through all process the python process once he found it he kill it
-            foreach (var process in Process.GetProcessesByName("python"))
-            {
-                process.Kill();
-            }
-            //set the server status to OFF
-            server_status_custom = false;
-            serverstatus_custom.Text = "OFF";
         }
 
         private void startbutton_cracked_Click(object sender, EventArgs e)
@@ -415,7 +292,7 @@ namespace Méphistophélès
 
                 //saving the host file to oldhost.txt for get less trouble that possible if you close without stoping the server.
                 StreamReader streamReader = new StreamReader("C:\\Windows\\System32\\drivers\\etc\\hosts");
-                StreamWriter streamWriter = new StreamWriter("oldhost.txt");
+                StreamWriter streamWriter = new StreamWriter("hosts.bak");
 
                 string line = streamReader.ReadLine();
 
@@ -432,6 +309,7 @@ namespace Méphistophélès
                 File.AppendAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", payload);
                 server_status_cracked = true;
                 serverstatus.Text = "ON";
+                serverstatus.ForeColor = System.Drawing.Color.Lime;
             }
         }
     }
